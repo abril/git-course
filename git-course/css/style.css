@@ -228,7 +228,7 @@ code.inline {
 
 .objeto {
 	border: 1px solid #999;
-	width: 50%;
+	width: 45%;
 }
 
 .objeto td {
@@ -246,4 +246,51 @@ tbody td {
 	min-height: 200px;
 	height: 200px;
 	text-align: left;
+}
+
+.list {
+	float: right;
+	width: 50%;
+}
+
+.list * {
+	display: block;
+	float: left;
+	font-family: courier;
+	font-size: 18px;
+	margin-top: 3px;
+	padding: 5px 1%;
+	width: 45%;
+}
+
+.list dt {
+	text-align: right;
+}
+
+.list dd {
+	text-align: center;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.tree-container {
+	border: 1px dashed #999;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.blob {
+	background-color: #CADBFE;
+}
+
+.tree {
+	background-color: #D9EACA;
+}
+
+.commit {
+	background-color: #FED1CF;
+}
+
+.tag {
+	background-color: #FFE8CB;
 }

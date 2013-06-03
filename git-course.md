@@ -152,11 +152,20 @@ end
 </table>
 
 ---
-= data-x=4000 data-y=0 data-scale=0.1
+= data-x=5000 data-y=0
 
 # Objects Database
 
 ## blobs
+
+<dl class='list'>
+    <dt>Rakefile</dt>
+    <dd class='blob'>blob: 2e6f9b</dd>
+    <dt>source.rb</dt>
+    <dd class='blob'>blob: 7034fe</dd>
+    <dt>source_test.rb</dt>
+    <dd class='blob'>blob: 8034f1</dd>
+</dl>
 
 <table class='objeto'>
     <thead>
@@ -175,11 +184,26 @@ end
 `2e6f9b0d5885b6010f9167787445617f553a735f`
 
 ---
-= data-x=4000 data-y=0 data-scale=0.01
+= data-x=6000 data-y=0
 
 # Objects Database
 
 ## trees
+
+<dl class='list tree-container'>
+    <dt>/</dt>
+    <dd class='tree'>tree: 1a2b3c</dd>
+    <dt>Rakefile</dt>
+    <dd class='blob'>blob: 2e6f9b</dd>
+    <dt>/lib</dt>
+    <dd class='tree'>tree: 2b3c4d</dd>
+    <dt>source.rb</dt>
+    <dd class='blob'>blob: 7034fe</dd>
+    <dt>/test</dt>
+    <dd class='tree'>tree: 5b32ad</dd>
+    <dt>source_test.rb</dt>
+    <dd class='blob'>blob: 8034f1</dd>
+</dl>
 
 <table class='objeto'>
     <thead>
@@ -191,8 +215,8 @@ end
     <tbody>
         <tr>
             <td colspan='2'>
-                040000 tree 205f6b... somedir<br/>
-                100644 blog 2e6f9b... somefile<br/>
+                040000 tree 205f6b... /<br/>
+                100644 blog 2e6f9b... Rakefile<br/>
                 ...
             </td>
         </tr>
@@ -202,11 +226,28 @@ end
 `ob772ec8eb9ae8952c3c1e56a9ffbe49385cc83a`
 
 ---
-= data-x=4000 data-y=0 data-scale=0.001
+= data-x=7000 data-y=0
 
 # Objects Database
 
 ## commits
+
+<dl class='list tree-container'>
+    <dt>&nbsp;</dt>
+    <dd class='commit'>commit: 3e4c5d</dd>
+    <dt>/</dt>
+    <dd class='tree'>tree: 1a2b3c</dd>
+    <dt>Rakefile</dt>
+    <dd class='blob'>blob: 2e6f9b</dd>
+    <dt>/lib</dt>
+    <dd class='tree'>tree: 2b3c4d</dd>
+    <dt>source.rb</dt>
+    <dd class='blob'>blob: 7034fe</dd>
+    <dt>/test</dt>
+    <dd class='tree'>tree: 5b32ad</dd>
+    <dt>source_test.rb</dt>
+    <dd class='blob'>blob: 8034f1</dd>
+</dl>
 
 <table class='objeto'>
     <thead>
@@ -232,11 +273,30 @@ end
 `7216b02627bc3d6ef57008f7ff67f0f8f13f488e`
 
 ---
-= data-x=4000 data-y=0 data-scale=0.0001
+= data-x=8000 data-y=0
 
 # Objects Database
 
 ## tags
+
+<dl class='list tree-container'>
+    <dt>&nbsp;</dt>
+    <dd class='tag'>tag: 6e7a8b</dd>
+    <dt>&nbsp;</dt>
+    <dd class='commit'>commit: 3e4c5d</dd>
+    <dt>/</dt>
+    <dd class='tree'>tree: 1a2b3c</dd>
+    <dt>Rakefile</dt>
+    <dd class='blob'>blob: 2e6f9b</dd>
+    <dt>/lib</dt>
+    <dd class='tree'>tree: 2b3c4d</dd>
+    <dt>source.rb</dt>
+    <dd class='blob'>blob: 7034fe</dd>
+    <dt>/test</dt>
+    <dd class='tree'>tree: 5b32ad</dd>
+    <dt>source_test.rb</dt>
+    <dd class='blob'>blob: 8034f1</dd>
+</dl>
 
 <table class='objeto'>
     <thead>
@@ -259,5 +319,5 @@ end
 `0bc9a42eb66d7ae36bf44af8ff5a3888e8a02d12`
 
 ---
-= data-x=6000 data-y=0
+= data-x=9000 data-y=0
 
