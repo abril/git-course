@@ -249,26 +249,32 @@ tbody td {
 }
 
 .list {
+	font: 19px courier;
 	float: right;
 	width: 50%;
 }
 
-.list * {
-	display: block;
+.list ul {
+	list-style: none;
 	float: left;
-	font-family: courier;
-	font-size: 18px;
-	margin-top: 3px;
-	padding: 5px 1%;
+	margin: 0;
+	padding: 3px 1%;
 	width: 45%;
 }
 
-.list dt {
+.list ul li {
+	margin: 5px 0;
+}
+
+.keys {
 	text-align: right;
 }
 
-.list dd {
+.values {
 	text-align: center;
+}
+
+.values li {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
@@ -277,6 +283,7 @@ tbody td {
 	border: 1px dashed #999;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	padding: 2px;
 }
 
 .blob {

@@ -132,10 +132,10 @@ end
 
 # Objects Database
 
-* blob
-* tree
-* commit
-* tag
+* blob - é o menor objeto git, normalmente representa um arquivo.
+* tree - contém *trees* e *blobs*
+* commit - agrupa o "estado atual" de todos os objetos (*trees* e *blobs*)
+* tag - aponta para um *commit*
 
 <table class='objeto'>
     <thead>
@@ -158,14 +158,18 @@ end
 
 ## blobs
 
-<dl class='list'>
-    <dt>Rakefile</dt>
-    <dd class='blob'>blob: 2e6f9b</dd>
-    <dt>source.rb</dt>
-    <dd class='blob'>blob: 7034fe</dd>
-    <dt>source_test.rb</dt>
-    <dd class='blob'>blob: 8034f1</dd>
-</dl>
+<div class='list'>
+    <ul class='keys'>
+        <li>Rakefile</li>
+        <li>source.rb</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values'>
+        <li class='blob'>blob: 2e6f9b</li>
+        <li class='blob'>blob: 7034fe</li>
+        <li class='blob'>blob: 8034f1</li>
+    </ul>
+</div>
 
 <table class='objeto'>
     <thead>
@@ -190,20 +194,25 @@ end
 
 ## trees
 
-<dl class='list tree-container'>
-    <dt>/</dt>
-    <dd class='tree'>tree: 1a2b3c</dd>
-    <dt>Rakefile</dt>
-    <dd class='blob'>blob: 2e6f9b</dd>
-    <dt>/lib</dt>
-    <dd class='tree'>tree: 2b3c4d</dd>
-    <dt>source.rb</dt>
-    <dd class='blob'>blob: 7034fe</dd>
-    <dt>/test</dt>
-    <dd class='tree'>tree: 5b32ad</dd>
-    <dt>source_test.rb</dt>
-    <dd class='blob'>blob: 8034f1</dd>
-</dl>
+
+<div class='list'>
+    <ul class='keys'>
+        <li>/</li>
+        <li>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='tree'>tree: 1a2b3c</li>
+        <li class='blob'>blob: 2e6f9b</li>
+        <li class='tree'>tree: 2b3c4d</li>
+        <li class='blob'>blob: 7034fe</li>
+        <li class='tree'>tree: 5b32ad</li>
+        <li class='blob'>blob: 8034f1</li>
+    </ul>
+</div>
 
 <table class='objeto'>
     <thead>
@@ -232,22 +241,28 @@ end
 
 ## commits
 
-<dl class='list tree-container'>
-    <dt>&nbsp;</dt>
-    <dd class='commit'>commit: 3e4c5d</dd>
-    <dt>/</dt>
-    <dd class='tree'>tree: 1a2b3c</dd>
-    <dt>Rakefile</dt>
-    <dd class='blob'>blob: 2e6f9b</dd>
-    <dt>/lib</dt>
-    <dd class='tree'>tree: 2b3c4d</dd>
-    <dt>source.rb</dt>
-    <dd class='blob'>blob: 7034fe</dd>
-    <dt>/test</dt>
-    <dd class='tree'>tree: 5b32ad</dd>
-    <dt>source_test.rb</dt>
-    <dd class='blob'>blob: 8034f1</dd>
-</dl>
+<div class='list'>
+    <ul class='keys'>
+        <li>&nbsp;</li>
+        <li>/</li>
+        <li>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='commit'>commit: 3e4c5d</li>
+        <div class="tree-container">
+            <li class='tree'>tree: 1a2b3c</li>
+            <li class='blob'>blob: 2e6f9b</li>
+            <li class='tree'>tree: 2b3c4d</li>
+            <li class='blob'>blob: 7034fe</li>
+            <li class='tree'>tree: 5b32ad</li>
+            <li class='blob'>blob: 8034f1</li>
+        </div>
+    </ul>
+</div>
 
 <table class='objeto'>
     <thead>
@@ -261,8 +276,8 @@ end
             <td colspan='2'>
                 tree ob772e...<br/>
                 parent 12cb23...<br/>
-                author Someone &lt;address&gt;<br/>
-                commiter Someone &lt;address&gt;<br/>
+                author Someone &lt;aliress&gt;<br/>
+                commiter Someone &lt;aliress&gt;<br/>
                 commit message<br/>
                 ...
             </td>
@@ -279,24 +294,32 @@ end
 
 ## tags
 
-<dl class='list tree-container'>
-    <dt>&nbsp;</dt>
-    <dd class='tag'>tag: 6e7a8b</dd>
-    <dt>&nbsp;</dt>
-    <dd class='commit'>commit: 3e4c5d</dd>
-    <dt>/</dt>
-    <dd class='tree'>tree: 1a2b3c</dd>
-    <dt>Rakefile</dt>
-    <dd class='blob'>blob: 2e6f9b</dd>
-    <dt>/lib</dt>
-    <dd class='tree'>tree: 2b3c4d</dd>
-    <dt>source.rb</dt>
-    <dd class='blob'>blob: 7034fe</dd>
-    <dt>/test</dt>
-    <dd class='tree'>tree: 5b32ad</dd>
-    <dt>source_test.rb</dt>
-    <dd class='blob'>blob: 8034f1</dd>
-</dl>
+<div class='list'>
+    <ul class='keys'>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>/</li>
+        <li>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values'>
+        <li class='tag'>tag: 6e7a8b</li>
+        <div class="tree-container">
+            <li class='commit'>commit: 3e4c5d</li>
+            <div class="tree-container">
+                <li class='tree'>tree: 1a2b3c</li>
+                <li class='blob'>blob: 2e6f9b</li>
+                <li class='tree'>tree: 2b3c4d</li>
+                <li class='blob'>blob: 7034fe</li>
+                <li class='tree'>tree: 5b32ad</li>
+                <li class='blob'>blob: 8034f1</li>
+            </div>
+        </div>
+    </ul>
+</div>
 
 <table class='objeto'>
     <thead>
