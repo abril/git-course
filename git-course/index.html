@@ -13,7 +13,7 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
     <link href="css/style.css" rel="stylesheet" />
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
   </head>
 
   <body>
@@ -22,12 +22,256 @@
   <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
   </div>
     <div id="impress">
-    <div class='step' >
+    <div class='step'  id="intro" data-x="3000" data-y="1500" data-scale="30">
     
-<h1 class='capa'>Curso de Git</h1>
+<h1>Curso de Git</h1>
 
-<p><a href="http://bit.ly/cursogitabril">http://bit.ly/cursogitabril</a> - <a href="https://github.com/abril/git-course">https://github.com/abril/git-course</a></p>
+<p><a href="http://bit.ly/cursogitabril">http://bit.ly/cursogitabril</a></p>
 
+<p><a href="https://github.com/abril/git-course">https://github.com/abril/git-course</a></p>
+</div>
+      <div class='step'  data-x=0 data-y=0>
+    
+<h1>O que é?</h1>
+
+<ul>
+<li>Criado em 2005 por Linus Torvalds*</li>
+<li>Necessidade, linux-kernel-devs</li>
+<li>Velocidade</li>
+<li>Design simples</li>
+<li>Suporte robusto a desenvolvimento não linear (milhares de branches paralelos)</li>
+<li>Totalmente distribuído</li>
+<li>Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)</li>
+</ul>
+</div>
+      <div class='step'  data-x=0 data-y=0 data-scale=0.01>
+    
+<h1>O que é?</h1>
+
+<p>Linux usava o BitKeeper para versionar o Linux. Em meiados de 2005, vence a licença de uso e Linus cria seu próprio SCM e, ainda em 2005, é usado oficialmente para versionar o código o Linux. Em 2007 é lançado para uso público.</p>
+</div>
+      <div class='step'  data-x=1000 data-y=0>
+    
+<h1>Características Básicas</h1>
+
+<ul>
+<li>Controle de versão distribuido (DVCS)</li>
+<li>Gerenciamento de conteúdo e não arquivos</li>
+<li>Branches como unidade de trabalho</li>
+<li>SHA1 para associação e verificação</li>
+<li>Staging index (preparação para <em>commit</em>)
+<li style='color: #eee'>Não é o subversion</li></li>
+</ul>
+</div>
+      <div class='step'  data-x=2000 data-y=0>
+    
+<h1>Estrutura de Controle</h1>
+
+<ul>
+<li>Diretório <code class='inline prettyprint'>.git</code> na raíz de cada projeto</li>
+<li>Arquivos de configuração <code class='inline prettyprint'>.git/config</code></li>
+<li>Index <code class='inline prettyprint'>.git/index</code></li>
+<li>Hooks <code class='inline prettyprint'>.git/hooks</code></li>
+<li>Object Database <code class='inline prettyprint'>.git/objects</code></li>
+<li>References <code class='inline prettyprint'>.git/refs</code></li>
+</ul>
+</div>
+      <div class='step'  data-x=2000 data-y=0 data-scale=0.01>
+    
+<h1>Estrutura de Controle</h1>
+<pre><code class='prettyprint '>.git
+|-- COMMIT_EDITMSG  # última mensagem de commit
+|-- HEAD            # referência atual do checkout
+|-- config          # arquivo de configuração do repositório
+|-- description     # arquivo de descrição do repositório
+|-- hooks           # diretório com arquivos de gatilhos
+|   |-- ...
+|-- index           # mudanças para commit
+|-- info
+|   |-- exclude     # configuração de arquivos p/ ñ versionamento
+|   +-- refs        # lista de branches e suas referências
+|-- logs
+|   |-- ...         # arquivos de log das mudanças
+|-- objects
+|   |-- info
+|   │   +-- packs   # informações sobre pacotes
+|   +-- pack
+|       |-- ...     # pacotes e indices
+|-- packed-refs
+|-- refs
+    |-- heads
+    +-- tags
+</code></pre></div>
+      <div class='step'  data-x=3000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<p>Todos os objetos se registram da mesma forma</p>
+<pre><code class='prettyprint '>conteudo
+
+header + conteudo
+
+"2e6f9b0d5885b6010f9167787445617f553a735f"
+
+zlib(header + conteudo)
+
+</code></pre>
+<p><code class='inline prettyprint'>.git/objects/2e/6f9b0d5885b6010f9167787445617f553a735f</code></p>
+</div>
+      <div class='step'  data-x=3000 data-y=0 data-scale=0.01>
+    
+<h1>Objects Database</h1>
+<pre><code class='prettyprint ruby'>def put_raw_object(content, type)
+  size = content.length.to_s
+  LooseStorage.verify_header(type, size)
+
+  header = "#{type} #{size}\0"
+  store = header + content
+
+  sha1 = Digest::SHA1.hexdigest(store)
+  path = @directory+'/'+sha1[0...2]+'/'+sha1[2..40]
+
+  if !File.exists?(path)
+    content = data-scale=2Zlib::Deflate.deflate(store)
+
+    FileUtils.mkdir_p(@directory+'/'+sha1[0...2])
+    File.open(path, 'wb') do |f|
+      f.write content
+    end
+  end
+  return sha1
+end
+</code></pre></div>
+      <div class='step'  data-x=4000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<ul>
+<li>blob</li>
+<li>tree</li>
+<li>commit</li>
+<li>tag</li>
+</ul>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>type</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan='2'>data</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+      <div class='step'  data-x=4000 data-y=0 data-scale=0.1>
+    
+<h1>Objects Database</h1>
+
+<h2>blobs</h2>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>blob</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class='data'>
+            <td colspan='2'>file data</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>2e6f9b0d5885b6010f9167787445617f553a735f</code></p>
+</div>
+      <div class='step'  data-x=4000 data-y=0 data-scale=0.01>
+    
+<h1>Objects Database</h1>
+
+<h2>trees</h2>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>tree</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan='2'>
+                040000 tree 205f6b... somedir<br/>
+                100644 blog 2e6f9b... somefile<br/>
+                ...
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>ob772ec8eb9ae8952c3c1e56a9ffbe49385cc83a</code></p>
+</div>
+      <div class='step'  data-x=4000 data-y=0 data-scale=0.001>
+    
+<h1>Objects Database</h1>
+
+<h2>commits</h2>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>commit</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class='data'>
+            <td colspan='2'>
+                tree ob772e...<br/>
+                parent 12cb23...<br/>
+                author Someone &lt;address&gt;<br/>
+                commiter Someone &lt;address&gt;<br/>
+                commit message<br/>
+                ...
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>7216b02627bc3d6ef57008f7ff67f0f8f13f488e</code></p>
+</div>
+      <div class='step'  data-x=4000 data-y=0 data-scale=0.0001>
+    
+<h1>Objects Database</h1>
+
+<h2>tags</h2>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>tag</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class='data'>
+            <td colspan='2'>
+                object 7216b0...<br/>
+                tag tag-name<br/>
+                ...
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>0bc9a42eb66d7ae36bf44af8ff5a3888e8a02d12</code></p>
+</div>
+      <div class='step'  data-x=6000 data-y=0>
+    
       </div>
     <script src="js/impress.js"></script>
     <script>impress().init();</script>

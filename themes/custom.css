@@ -73,7 +73,7 @@ h1, h2, h3, h4 {
 	margin-bottom: 10px;
 }
 
-.capa {
+.step:first-child h1 {
 	color: #c33;
 	font-size: 3em;
 	text-transform: uppercase;
@@ -152,10 +152,6 @@ ul {
 	margin: 20px 0 20px 50px;
 }
 
-li {
-	list-style: none;
-}
-
 td,th {
 	vertical-align: top;
 	line-height: 44px;
@@ -221,4 +217,9 @@ span,strong {
 	-ms-transition-delay: 0.5s;
 	-o-transition-delay: 0.5s;
 	transition-delay: 0.5s;
+}
+
+.fright {
+	float: right;
+	text-align: left;
 }
