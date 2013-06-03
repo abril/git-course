@@ -22,13 +22,15 @@
   <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
   </div>
     <div id="impress">
-    <div class='step'  id="intro" data-x="3000" data-y="1500" data-scale="30">
+    <div class='step'  id="intro" data-x="3000" data-y="1500" data-scale="100">
     
 <h1>Curso de Git</h1>
 
 <p><a href="http://bit.ly/cursogitabril">http://bit.ly/cursogitabril</a></p>
 
 <p><a href="https://github.com/abril/git-course">https://github.com/abril/git-course</a></p>
+
+<p>Baseado em <a href="http://git-scm.com/book/pt-br">http://git-scm.com/book/pt-br</a></p>
 </div>
       <div class='step'  data-x=0 data-y=0>
     
@@ -405,8 +407,9 @@ end
 <h1>Configurando</h1>
 
 <p>Sintaxe:</p>
-<pre><code class='prettyprint bash'>$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]
-</code></pre>
+
+<p><code class='inline prettyprint'>$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]</code></p>
+
 <ol>
 <li><p>Sistema <code class='inline prettyprint'>--system</code>: <code class='inline prettyprint'>/etc/gitconfig</code></p>
 <pre><code class='prettyprint bash'>$ git config --system
@@ -415,12 +418,12 @@ end
 <pre><code class='prettyprint bash'>$ git config --global user.name "Celestino Gomes"
 $ git config --global user.email "celestino.gomes@abril.com.br"
 </code></pre></li>
-<li><p>Repositório: <code class='inline prettyprint'>./.git/config</code></p>
-<pre><code class='prettyprint bash'>$ git config core.ignorecase true
+<li><p>Repositório <code class='inline prettyprint'>--local</code>: <code class='inline prettyprint'>./.git/config</code> Esse somente em um repositório ;)</p>
+<pre><code class='prettyprint bash'>$ git config [--local] core.ignorecase true
 </code></pre></li>
 </ol>
 <pre><code class='prettyprint bash'>$ git config user.name   # Imprime "Celestino Gomes"
-$ git config --list      # Lista todas as chaves configuradas para o repo atual
+$ git config --list      # Lista as chaves configuradas para o repo atual
 </code></pre></div>
       <div class='step'  data-x=1000 data-y=1000>
     
@@ -444,9 +447,154 @@ See 'git help &lt;command&gt;' for more information on a specific command.
     
 <h1>O Básico</h1>
 
+<h2>Criando um repositório local.</h2>
+
 <ol>
-<li><code class='inline prettyprint'>git init</code>: Criando um repositório a partir do diretório atual</li>
+<li><p><code class='inline prettyprint'>git init</code>: Cria um repositório a partir do diretório atual. Irá criar um diretório <code class='inline prettyprint'>.git</code> no diretório atual.</p></li>
+<li><p><code class='inline prettyprint'>git clone</code>: Cria um repositório a partir de um outro repositório já existente.</p>
+<pre><code class='prettyprint bash'>$ cd repos
+$ git clone https://github.com/abril/git-course.git
+</code></pre><pre><code class='prettyprint bash'>$ cd repos
+$ git clone https://github.com/abril/git-course.git curso-de-git
+</code></pre></li>
 </ol>
+</div>
+      <div class='step'  data-x=3000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Gravando as mudanças no repositório.</h2>
+
+<p>Abaixo uma imagem que explica o ciclo de vida dos arquivos em um repositório <em>git</em>.</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0201-tn.png" alt="Ciclo de vida dos arquivos" title="File Status Lifecycle"></p>
+</div>
+      <div class='step'  data-x=4000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Verificando o estado dos seus arquivos</h2>
+<pre><code class='prettyprint bash'>$ git status
+# On branch master
+nothing to commit (working directory clean)
+
+$ echo 'conteudo' > README
+$ git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#    README
+nothing added to commit but untracked files present (use "git add" to track)
+</code></pre></div>
+      <div class='step'  data-x=5000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Preparando suas mudanças para integração</h2>
+
+<p><code class='inline prettyprint'>$ git add README</code></p>
+</div>
+      <div class='step'  data-x=6000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Verificando o estado dos seus arquivos II</h2>
+<pre><code class='prettyprint bash'>$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#   new file:   README
+#
+</code></pre></div>
+      <div class='step'  data-x=7000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Ignorando Arquivos</h2>
+
+<p><code class='inline prettyprint'>$ cat .gitignore</code></p>
+
+<p>É comum usar para ignorar arquivos temporários, log e configurações locais.</p>
+
+<p><code class='inline prettyprint'>$ echo '*.log' >> .gitignore</code></p>
+</div>
+      <div class='step'  data-x=8000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Visualizando suas modificações (selecionadas ou não)</h2>
+<pre><code class='prettyprint bash'>$ git diff
+diff --git a/README b/README
+index 0cfbf08..bcaa3b0 100644
+--- a/README
++++ b/README
+@@ -1 +1,2 @@
+ 2
++conteudo
+</code></pre></div>
+      <div class='step'  data-x=9000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Fazendo <em>commit</em> de suas mudanças</h2>
+
+<p><code class='inline prettyprint'>$ git commit -m 'meu primeiro commit no git \o/'</code></p>
+</div>
+      <div class='step'  data-x=10000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Removendo arquivos</h2>
+
+<p><code class='inline prettyprint'>$ git rm arquivo</code></p>
+
+<h2>Movendo arquivos</h2>
+
+<p><code class='inline prettyprint'>git mv README LEIAME</code></p>
+
+<p>É a mesma coisa que:</p>
+<pre><code class='prettyprint '>$ mv README LEIAME
+$ git rm README
+$ git add LEIAME
+</code></pre></div>
+      <div class='step'  data-x=0 data-y=2000>
+    
+<h1>O Básico</h1>
+
+<h2>Visualizando o Histórico de commits</h2>
+<pre><code class='prettyprint bash'>$ git log
+$ git log -p 2
+$ git log --pretty=oneline|short|full|fuller
+$ git log --graph
+$ git log -2
+$ git log --since=2.weeks
+</code></pre>
+<h2>Ferramentas visuais</h2>
+
+<p><code class='inline prettyprint'>$ gitk</code></p>
+</div>
+      <div class='step'  data-x=1000 data-y=2000>
+    
+<h1>O Básico</h1>
+
+<h2>Modificando seu último commit</h2>
+
+<p><code class='inline prettyprint'>git commit --amend</code></p>
+
+<p><strong>Use apenas em seu repositório local, antes de integrar com outros repos</strong></p>
+
+<h2>Tirando um arquivo da área de seleção</h2>
+
+<p><code class='inline prettyprint'>$ git reset HEAD</code></p>
+
+<h2>Desfazendo um arquivo modificado</h2>
+
+<p><code class='inline prettyprint'>$ git checkout -- arquivo</code></p>
 
       </div>
     <script src="js/impress.js"></script>

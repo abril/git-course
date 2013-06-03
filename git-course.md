@@ -1,10 +1,12 @@
-= id="intro" data-x="3000" data-y="1500" data-scale="30"
+= id="intro" data-x="3000" data-y="1500" data-scale="100"
 
 #Curso de Git
 
 <http://bit.ly/cursogitabril>
 
 <https://github.com/abril/git-course>
+
+Baseado em <http://git-scm.com/book/pt-br>
 
 ---
 = data-x=0 data-y=0
@@ -397,9 +399,7 @@ Acessar o site oficial do Git e fazer o download de acordo com seu sistema opera
 
 Sintaxe:
 
-```bash
-$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]
-```
+`$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]`
 
 1. Sistema `--system`: `/etc/gitconfig`
 
@@ -414,15 +414,15 @@ $ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]
     $ git config --global user.email "celestino.gomes@abril.com.br"
     ```
 
-3. Repositório: `./.git/config`
+3. Repositório `--local`: `./.git/config` Esse somente em um repositório ;)
 
     ```bash
-    $ git config core.ignorecase true
+    $ git config [--local] core.ignorecase true
     ```
 
 ```bash
 $ git config user.name   # Imprime "Celestino Gomes"
-$ git config --list      # Lista todas as chaves configuradas para o repo atual
+$ git config --list      # Lista as chaves configuradas para o repo atual
 ```
 
 ---
@@ -452,4 +452,182 @@ See 'git help &lt;command&gt;' for more information on a specific command.
 
 # O Básico
 
-1. `git init`: Criando um repositório a partir do diretório atual
+## Criando um repositório local.
+
+1. `git init`: Cria um repositório a partir do diretório atual. Irá criar um diretório `.git` no diretório atual.
+
+2. `git clone`: Cria um repositório a partir de um outro repositório já existente.
+
+    ```bash
+    $ cd repos
+    $ git clone https://github.com/abril/git-course.git
+    ```
+
+    ```bash
+    $ cd repos
+    $ git clone https://github.com/abril/git-course.git curso-de-git
+    ```
+
+---
+= data-x=3000 data-y=1000
+
+# O Básico
+
+## Gravando as mudanças no repositório.
+
+Abaixo uma imagem que explica o ciclo de vida dos arquivos em um repositório *git*.
+
+![Ciclo de vida dos arquivos](http://git-scm.com/figures/18333fig0201-tn.png "File Status Lifecycle")
+
+
+---
+= data-x=4000 data-y=1000
+
+# O Básico
+
+## Verificando o estado dos seus arquivos
+
+```bash
+$ git status
+# On branch master
+nothing to commit (working directory clean)
+
+$ echo 'conteudo' > README
+$ git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#    README
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+---
+= data-x=5000 data-y=1000
+
+# O Básico
+
+## Preparando suas mudanças para integração
+
+`$ git add README`
+
+---
+= data-x=6000 data-y=1000
+
+# O Básico
+
+## Verificando o estado dos seus arquivos II
+
+```bash
+$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   README
+#
+```
+
+---
+= data-x=7000 data-y=1000
+
+# O Básico
+
+## Ignorando Arquivos
+
+`$ cat .gitignore`
+
+É comum usar para ignorar arquivos temporários, log e configurações locais.
+
+`$ echo '*.log' >> .gitignore`
+
+---
+= data-x=8000 data-y=1000
+
+# O Básico
+
+## Visualizando suas modificações (selecionadas ou não)
+
+```bash
+$ git diff
+diff --git a/README b/README
+index 0cfbf08..bcaa3b0 100644
+--- a/README
++++ b/README
+@@ -1 +1,2 @@
+ 2
++conteudo
+```
+
+---
+= data-x=9000 data-y=1000
+
+# O Básico
+
+## Fazendo *commit* de suas mudanças
+
+`$ git commit -m 'meu primeiro commit no git \o/'`
+
+---
+= data-x=10000 data-y=1000
+
+# O Básico
+
+## Removendo arquivos
+
+`$ git rm arquivo`
+
+## Movendo arquivos
+
+`git mv README LEIAME`
+
+É a mesma coisa que:
+
+```
+$ mv README LEIAME
+$ git rm README
+$ git add LEIAME
+```
+
+---
+= data-x=0 data-y=2000
+
+# O Básico
+
+## Visualizando o Histórico de commits
+
+```bash
+$ git log
+$ git log -p 2
+$ git log --pretty=oneline|short|full|fuller
+$ git log --graph
+$ git log -2
+$ git log --since=2.weeks
+```
+
+## Ferramentas visuais
+
+`$ gitk`
+
+---
+= data-x=1000 data-y=2000
+
+# O Básico
+
+## Modificando seu último commit
+
+`git commit --amend`
+
+**Use apenas em seu repositório local, antes de integrar com outros repos**
+
+## Tirando um arquivo da área de seleção
+
+`$ git reset HEAD`
+
+## Desfazendo um arquivo modificado
+
+`$ git checkout -- arquivo`
+
