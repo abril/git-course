@@ -254,7 +254,7 @@ tbody td {
 	width: 50%;
 }
 
-.list ul {
+.keys, .values {
 	list-style: none;
 	float: left;
 	margin: 0;
@@ -262,12 +262,26 @@ tbody td {
 	width: 45%;
 }
 
-.list ul li {
+li {
+	line-height: 33px;
 	margin: 5px 0;
 }
 
 .keys {
+	margin-right: 5px;
 	text-align: right;
+}
+
+.trees .keys {
+	margin-top: 3px;
+}
+
+.only-commits .keys, .commits .keys {
+	margin-top: 10px;
+}
+
+.tags .keys {
+	margin-top: 20px;
 }
 
 .values {
@@ -275,8 +289,8 @@ tbody td {
 }
 
 .values li {
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .tree-container {
@@ -290,6 +304,11 @@ tbody td {
 	background-color: #CADBFE;
 }
 
+.blob-changed {
+	background-color: #A5B6D7;
+	font-weight: bold;
+}
+
 .tree {
 	background-color: #D9EACA;
 }
@@ -300,4 +319,17 @@ tbody td {
 
 .tag {
 	background-color: #FFE8CB;
+}
+
+.only-commits {
+	font: 19px courier;
+}
+
+.only-commits .keys, .only-commits .values {
+	width: 30%;
+}
+
+.file-changed {
+	color: red;
+	font-weight: bold;
 }

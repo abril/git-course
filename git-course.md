@@ -158,7 +158,7 @@ end
 
 ## blobs
 
-<div class='list'>
+<div class='list blobs'>
     <ul class='keys'>
         <li>Rakefile</li>
         <li>source.rb</li>
@@ -194,8 +194,7 @@ end
 
 ## trees
 
-
-<div class='list'>
+<div class='list trees'>
     <ul class='keys'>
         <li>/</li>
         <li>Rakefile</li>
@@ -224,7 +223,7 @@ end
     <tbody>
         <tr>
             <td colspan='2'>
-                040000 tree 205f6b... /<br/>
+                040000 tree 1a2b3c... /<br/>
                 100644 blog 2e6f9b... Rakefile<br/>
                 ...
             </td>
@@ -241,7 +240,7 @@ end
 
 ## commits
 
-<div class='list'>
+<div class='list commits'>
     <ul class='keys'>
         <li>&nbsp;</li>
         <li>/</li>
@@ -292,9 +291,50 @@ end
 
 # Objects Database
 
+## commits
+
+<div class='only-commits'>
+    <ul class='keys'>
+        <li>&nbsp;</li>
+        <li>/</li>
+        <li class='file-changed'>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li class='file-changed'>source_test.rb</li>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='commit'>commit: 3e4c5d</li>
+        <div class="tree-container">
+            <li class='tree'>tree: 1a2b3c</li>
+            <li class='blob'>blob: 2e6f9b</li>
+            <li class='tree'>tree: 2b3c4d</li>
+            <li class='blob'>blob: 7034fe</li>
+            <li class='tree'>tree: 5b32ad</li>
+            <li class='blob'>blob: 8034f1</li>
+        </div>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='commit'>commit: 61db26</li>
+        <div class="tree-container">
+            <li class='tree'>tree: 1a2b3c</li>
+            <li class='blob-changed'>blob: 41d300</li>
+            <li class='tree'>tree: 2b3c4d</li>
+            <li class='blob'>blob: 7034fe</li>
+            <li class='tree'>tree: 5b32ad</li>
+            <li class='blob-changed'>blob: 2a03fb</li>
+        </div>
+    </ul>
+</div>
+
+---
+= data-x=9000 data-y=0
+
+# Objects Database
+
 ## tags
 
-<div class='list'>
+<div class='list tags'>
     <ul class='keys'>
         <li>&nbsp;</li>
         <li>&nbsp;</li>
@@ -342,5 +382,74 @@ end
 `0bc9a42eb66d7ae36bf44af8ff5a3888e8a02d12`
 
 ---
-= data-x=9000 data-y=0
+= data-x=10000 data-y=0
 
+# Instalação
+
+Acessar o site oficial do Git e fazer o download de acordo com seu sistema operacional.
+
+<http://git-scm.com/downloads>
+
+---
+= data-x=0 data-y=1000
+
+# Configurando
+
+Sintaxe:
+
+```bash
+$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]
+```
+
+1. Sistema `--system`: `/etc/gitconfig`
+
+    ```bash
+    $ git config --system
+    ```
+
+2. Global `--global`: `~/.gitconfig`
+
+    ```bash
+    $ git config --global user.name "Celestino Gomes"
+    $ git config --global user.email "celestino.gomes@abril.com.br"
+    ```
+
+3. Repositório: `./.git/config`
+
+    ```bash
+    $ git config core.ignorecase true
+    ```
+
+```bash
+$ git config user.name   # Imprime "Celestino Gomes"
+$ git config --list      # Lista todas as chaves configuradas para o repo atual
+```
+
+---
+= data-x=1000 data-y=1000
+
+# Obtendo ajuda
+
+```bash
+$ git help
+
+usage: git &lt;command&gt; [&lt;args&gt;]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   ...
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+See 'git help &lt;command&gt;' for more information on a specific command.
+```
+
+---
+= data-x=2000 data-y=1000
+
+# O Básico
+
+1. `git init`: Criando um repositório a partir do diretório atual
