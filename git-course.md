@@ -134,9 +134,9 @@ end
 
 # Objects Database
 
-* blob - é o menor objeto git, normalmente representa um arquivo.
-* tree - contém *trees* e *blobs*
-* commit - agrupa o "estado atual" de todos os objetos (*trees* e *blobs*)
+* blob - É o menor objeto git e representa um arquivo.
+* tree - É um container de *trees* e *blobs*
+* commit - É um "snaphot" do estado atual de uma *tree*
 * tag - aponta para um *commit*
 
 <table class='objeto'>
@@ -240,7 +240,7 @@ end
 
 # Objects Database
 
-## commits
+## commits (snapshots)
 
 <div class='list commits'>
     <ul class='keys'>
@@ -631,3 +631,134 @@ $ git log --since=2.weeks
 
 `$ git checkout -- arquivo`
 
+---
+= data-x=2000 data-y=2000
+
+# O Básico
+
+## Fluxo completo
+
+```bash
+$ git init # git clone &lt;repo&gt;
+$ git add .
+$ git commit -m 'Primeiro commit'
+```
+
+---
+= data-x=3000 data-y=2000
+
+#  Branches
+
+No *git*, estamos sempre trabalhando em um *branch*. O nome do *branch* padrão é o **master**. Mas o que é um branch no git?
+
+```bash
+$ git branch
+* master
+```
+
+O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo:
+
+![Branch apontando para o histórico de commits](http://git-scm.com/figures/18333fig0303-tn.png "Branch apontando para o histórico de commits")
+
+---
+= data-x=4000 data-y=2000
+
+# Branches
+
+`$ git branch testing` vai criar um novo branch, apontando para a referência atual.
+
+![Múltiplos branches apontando para o histórico de commits](http://git-scm.com/figures/18333fig0304-tn.png "Múltiplos branches apontando para o histórico de commits")
+
+---
+= data-x=5000 data-y=2000
+
+# Branches
+
+Como o git sabe o branch em que você está atualmente? Ele tem um ponteiro especial chamado **HEAD**.
+
+![HEAD apontando para o branch em que você está](http://git-scm.com/figures/18333fig0305-tn.png "HEAD apontando para o branch em que você está")
+
+---
+= data-x=6000 data-y=2000
+
+# Branches
+
+Para mudar de branch, use `git checkout &lt;branch-name&gt;`
+
+`$ git checkout testing`
+
+![O HEAD aponta para outro branch quando você troca de branches](http://git-scm.com/figures/18333fig0306-tn.png "O HEAD aponta para outro branch quando você troca de branches")
+
+---
+= data-x=7000 data-y=2000
+
+# Branches
+
+Como juntar as coisas? Existem duas estratégia, sendo elas **merge** ou **rebase**
+
+## Branch Merge
+
+`$ git merge &lt;commit&gt;`
+
+![Git cria automaticamente um novo objeto commit que contém as modificações do merge](http://git-scm.com/figures/18333fig0317-tn.png "Git cria automaticamente um novo objeto commit que contém as modificações do merge")
+
+---
+= data-x=8000 data-y=2000
+
+# Branches
+
+## Branch Merge
+
+```bash
+$ git checkout -b iss53
+$ git add .
+$ git commit -m 'c3'
+$ git add .
+$ git commit -m 'c5'
+# ------------------
+$ git checkout master
+$ git add .
+$ git commit -m 'c4'
+$ git merge iss53
+```
+
+---
+= data-x=9000 data-y=2000
+
+# Branches
+
+## Branch Rebase `git rebase &lt;base&gt; &lt;destino&gt;`
+
+![Fazendo o rebase em C4 de mudanças feitas em C3](http://git-scm.com/figures/18333fig0329-tn.png "Fazendo o rebase em C4 de mudanças feitas em C3")
+
+<br/>
+
+```bash
+$ git checkout -b experiment
+$ git add .
+$ git commit -m 'c3'
+# ------------------
+$ git checkout master
+$ git add .
+$ git commit -m 'c4'
+# ------------------
+$ git checkout experiment
+$ git rebase master
+```
+
+---
+= data-x=10000 data-y=2000
+
+
+# Branches
+
+## Branch Rebase
+
+Então é só fazer a atualização do master para o experiment.
+
+```bash
+$ git checkout master
+$ git merge experiment
+```
+<br/>
+![Fazendo um fast-forward no branch master](http://git-scm.com/figures/18333fig0330-tn.png "Fazendo um fast-forward no branch master")

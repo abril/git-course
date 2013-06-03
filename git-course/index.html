@@ -149,9 +149,9 @@ end
 <h1>Objects Database</h1>
 
 <ul>
-<li>blob - é o menor objeto git, normalmente representa um arquivo.</li>
-<li>tree - contém <em>trees</em> e <em>blobs</em></li>
-<li>commit - agrupa o &quot;estado atual&quot; de todos os objetos (<em>trees</em> e <em>blobs</em>)</li>
+<li>blob - É o menor objeto git e representa um arquivo.</li>
+<li>tree - É um container de <em>trees</em> e <em>blobs</em></li>
+<li>commit - É um &quot;snaphot&quot; do estado atual de uma <em>tree</em></li>
 <li>tag - aponta para um <em>commit</em></li>
 </ul>
 
@@ -253,7 +253,7 @@ end
     
 <h1>Objects Database</h1>
 
-<h2>commits</h2>
+<h2>commits (snapshots)</h2>
 
 <div class='list commits'>
     <ul class='keys'>
@@ -595,6 +595,114 @@ $ git log --since=2.weeks
 <h2>Desfazendo um arquivo modificado</h2>
 
 <p><code class='inline prettyprint'>$ git checkout -- arquivo</code></p>
+</div>
+      <div class='step'  data-x=2000 data-y=2000>
+    
+<h1>O Básico</h1>
+
+<h2>Fluxo completo</h2>
+<pre><code class='prettyprint bash'>$ git init # git clone &lt;repo&gt;
+$ git add .
+$ git commit -m 'Primeiro commit'
+</code></pre></div>
+      <div class='step'  data-x=3000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>No <em>git</em>, estamos sempre trabalhando em um <em>branch</em>. O nome do <em>branch</em> padrão é o <strong>master</strong>. Mas o que é um branch no git?</p>
+<pre><code class='prettyprint bash'>$ git branch
+* master
+</code></pre>
+<p>O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo:</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0303-tn.png" alt="Branch apontando para o histórico de commits" title="Branch apontando para o histórico de commits"></p>
+</div>
+      <div class='step'  data-x=4000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p><code class='inline prettyprint'>$ git branch testing</code> vai criar um novo branch, apontando para a referência atual.</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0304-tn.png" alt="Múltiplos branches apontando para o histórico de commits" title="Múltiplos branches apontando para o histórico de commits"></p>
+</div>
+      <div class='step'  data-x=5000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>Como o git sabe o branch em que você está atualmente? Ele tem um ponteiro especial chamado <strong>HEAD</strong>.</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0305-tn.png" alt="HEAD apontando para o branch em que você está" title="HEAD apontando para o branch em que você está"></p>
+</div>
+      <div class='step'  data-x=6000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>Para mudar de branch, use <code class='inline prettyprint'>git checkout &lt;branch-name&gt;</code></p>
+
+<p><code class='inline prettyprint'>$ git checkout testing</code></p>
+
+<p><img src="http://git-scm.com/figures/18333fig0306-tn.png" alt="O HEAD aponta para outro branch quando você troca de branches" title="O HEAD aponta para outro branch quando você troca de branches"></p>
+</div>
+      <div class='step'  data-x=7000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>Como juntar as coisas? Existem duas estratégia, sendo elas <strong>merge</strong> ou <strong>rebase</strong></p>
+
+<h2>Branch Merge</h2>
+
+<p><code class='inline prettyprint'>$ git merge &lt;commit&gt;</code></p>
+
+<p><img src="http://git-scm.com/figures/18333fig0317-tn.png" alt="Git cria automaticamente um novo objeto commit que contém as modificações do merge" title="Git cria automaticamente um novo objeto commit que contém as modificações do merge"></p>
+</div>
+      <div class='step'  data-x=8000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<h2>Branch Merge</h2>
+<pre><code class='prettyprint bash'>$ git checkout -b iss53
+$ git add .
+$ git commit -m 'c3'
+$ git add .
+$ git commit -m 'c5'
+# ------------------
+$ git checkout master
+$ git add .
+$ git commit -m 'c4'
+$ git merge iss53
+</code></pre></div>
+      <div class='step'  data-x=9000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<h2>Branch Rebase <code class='inline prettyprint'>git rebase &lt;base&gt; &lt;destino&gt;</code></h2>
+
+<p><img src="http://git-scm.com/figures/18333fig0329-tn.png" alt="Fazendo o rebase em C4 de mudanças feitas em C3" title="Fazendo o rebase em C4 de mudanças feitas em C3"></p>
+
+<p><br/></p>
+<pre><code class='prettyprint bash'>$ git checkout -b experiment
+$ git add .
+$ git commit -m 'c3'
+# ------------------
+$ git checkout master
+$ git add .
+$ git commit -m 'c4'
+# ------------------
+$ git checkout experiment
+$ git rebase master
+</code></pre></div>
+      <div class='step'  data-x=10000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<h2>Branch Rebase</h2>
+
+<p>Então é só fazer a atualização do master para o experiment.</p>
+<pre><code class='prettyprint bash'>$ git checkout master
+$ git merge experiment
+</code></pre>
+<p><br/>
+<img src="http://git-scm.com/figures/18333fig0330-tn.png" alt="Fazendo um fast-forward no branch master" title="Fazendo um fast-forward no branch master"></p>
 
       </div>
     <script src="js/impress.js"></script>
