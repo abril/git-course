@@ -518,6 +518,10 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 ## Preparando suas mudanças para integração
 
+`git add &lt;path&gt;`
+
+Exemplo:
+
 `$ git add README`
 
 ---
@@ -560,6 +564,10 @@ $ git status
 
 ## Visualizando suas modificações (selecionadas ou não)
 
+`git diff [--cached] [--] [&lt;path&gt;]`
+
+Exemplo:
+
 ```bash
 $ git diff
 diff --git a/README b/README
@@ -578,7 +586,17 @@ index 0cfbf08..bcaa3b0 100644
 
 ## Fazendo *commit* de suas mudanças
 
+`git commit [&lt;options&gt;]`
+
+* `-m` - mensagem de commit
+* `-a` - inclui todos as mudanças de conteúdo
+
 `$ git commit -m 'meu primeiro commit no git \o/'`
+
+Se não passar `-m` com uma mensagem, o `git commit` vai abrir o editor padrão configurado para o sistema.
+
+`git config --global core.editor vi`
+
 
 ---
 = data-x=10000 data-y=1000
@@ -587,11 +605,15 @@ index 0cfbf08..bcaa3b0 100644
 
 ## Removendo arquivos
 
-`$ git rm arquivo`
+`git rm [-r] &lt;path&gt;`
 
 ## Movendo arquivos
 
-`git mv README LEIAME`
+`git mv &lt;current_path&gt; &lt;new_path&gt;`
+
+Exemplo
+
+`$ git mv README LEAIAME`
 
 É a mesma coisa que:
 
@@ -608,18 +630,17 @@ $ git add LEIAME
 
 ## Visualizando o Histórico de commits
 
-```bash
-$ git log
-$ git log -p 2
-$ git log --pretty=oneline|short|full|fuller
-$ git log --graph
-$ git log -2
-$ git log --since=2.weeks
-```
+`git log [&lt;options&gt;] [&lt;since&gt;..&lt;until&gt;] [[--] &lt;path&gt;...]`
 
-## Ferramentas visuais
+* `-&lt;N&gt;` - Para listar os N últimos commits.
+* `--pretty=&lt;format&gt;` - Formato de apresentação dos commit, podendo ser: oneline, short, medium (default), full, fuller, email, raw e formato definido pelo usuário.
+* `--graph` - Imprime de formato "gráfico" os commits
 
-`$ gitk`
+`$ git log --oneline --graph`
+
+## O que tem em um commit?
+
+`git show &lt;commit&gt;`
 
 ---
 = data-x=1000 data-y=2000
@@ -988,7 +1009,7 @@ Criar um branch do stash
 `git stash branch &lt;nome-do-branch&gt;`
 
 ---
-= data-x=2000 data-y=4000
+= data-x=3000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1009,7 +1030,7 @@ $ git blame v1.0.. -- README
 ```
 
 ---
-= data-x=3000 data-y=4000
+= data-x=4000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1031,7 +1052,7 @@ $ git checkout &lt;commit-ref&gt;
 O_o
 
 ---
-= data-x=4000 data-y=4000
+= data-x=5000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1057,7 +1078,7 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 ```
 
 ---
-= data-x=5000 data-y=4000
+= data-x=6000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1074,3 +1095,33 @@ Voltar ao estado atual do branch
 Automático
 
 `git bisect run &lt;script&gt;`
+
+---
+= data-x=0 data-y=5000
+
+# Resumão
+
+## Basicão
+
+```bash
+git init  /  git clone &lt;repo_path&gt;
+git add &lt;path&gt;
+git rm [-r] &lt;path&gt;
+git mv &lt;current_path&gt; &lt;new_path&gt;
+git commit [-m &lt;commit_message&gt;]
+```
+
+## Juntando os branches
+
+```bash
+git merge &lt;branch&gt;
+git rebase &lt;branch&gt;
+```
+
+## Sincronizado com remoto
+
+```bash
+git fetch [&lt;repo&gt;]
+git pull [&lt;repo&gt; [&lt;branch&gt;]] # == fetch + merge
+git push [&lt;repo&gt; [&lt;local_branch&gt;][[:]&lt;remove_branch&gt;]]
+```

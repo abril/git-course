@@ -503,6 +503,10 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 <h2>Preparando suas mudanças para integração</h2>
 
+<p><code class='inline prettyprint'>git add &lt;path&gt;</code></p>
+
+<p>Exemplo:</p>
+
 <p><code class='inline prettyprint'>$ git add README</code></p>
 </div>
       <div class='step'  data-x=6000 data-y=1000>
@@ -538,6 +542,10 @@ nothing added to commit but untracked files present (use "git add" to track)
 <h1>O Básico</h1>
 
 <h2>Visualizando suas modificações (selecionadas ou não)</h2>
+
+<p><code class='inline prettyprint'>git diff [--cached] [--] [&lt;path&gt;]</code></p>
+
+<p>Exemplo:</p>
 <pre><code class='prettyprint bash'>$ git diff
 diff --git a/README b/README
 index 0cfbf08..bcaa3b0 100644
@@ -553,7 +561,18 @@ index 0cfbf08..bcaa3b0 100644
 
 <h2>Fazendo <em>commit</em> de suas mudanças</h2>
 
+<p><code class='inline prettyprint'>git commit [&lt;options&gt;]</code></p>
+
+<ul>
+<li><code class='inline prettyprint'>-m</code> - mensagem de commit</li>
+<li><code class='inline prettyprint'>-a</code> - inclui todos as mudanças de conteúdo</li>
+</ul>
+
 <p><code class='inline prettyprint'>$ git commit -m 'meu primeiro commit no git \o/'</code></p>
+
+<p>Se não passar <code class='inline prettyprint'>-m</code> com uma mensagem, o <code class='inline prettyprint'>git commit</code> vai abrir o editor padrão configurado para o sistema.</p>
+
+<p><code class='inline prettyprint'>git config --global core.editor vi</code></p>
 </div>
       <div class='step'  data-x=10000 data-y=1000>
     
@@ -561,11 +580,15 @@ index 0cfbf08..bcaa3b0 100644
 
 <h2>Removendo arquivos</h2>
 
-<p><code class='inline prettyprint'>$ git rm arquivo</code></p>
+<p><code class='inline prettyprint'>git rm [-r] &lt;path&gt;</code></p>
 
 <h2>Movendo arquivos</h2>
 
-<p><code class='inline prettyprint'>git mv README LEIAME</code></p>
+<p><code class='inline prettyprint'>git mv &lt;current_path&gt; &lt;new_path&gt;</code></p>
+
+<p>Exemplo</p>
+
+<p><code class='inline prettyprint'>$ git mv README LEAIAME</code></p>
 
 <p>É a mesma coisa que:</p>
 <pre><code class='prettyprint '>$ mv README LEIAME
@@ -577,16 +600,20 @@ $ git add LEIAME
 <h1>O Básico</h1>
 
 <h2>Visualizando o Histórico de commits</h2>
-<pre><code class='prettyprint bash'>$ git log
-$ git log -p 2
-$ git log --pretty=oneline|short|full|fuller
-$ git log --graph
-$ git log -2
-$ git log --since=2.weeks
-</code></pre>
-<h2>Ferramentas visuais</h2>
 
-<p><code class='inline prettyprint'>$ gitk</code></p>
+<p><code class='inline prettyprint'>git log [&lt;options&gt;] [&lt;since&gt;..&lt;until&gt;] [[--] &lt;path&gt;...]</code></p>
+
+<ul>
+<li><code class='inline prettyprint'>-&lt;N&gt;</code> - Para listar os N últimos commits.</li>
+<li><code class='inline prettyprint'>--pretty=&lt;format&gt;</code> - Formato de apresentação dos commit, podendo ser: oneline, short, medium (default), full, fuller, email, raw e formato definido pelo usuário.</li>
+<li><code class='inline prettyprint'>--graph</code> - Imprime de formato &quot;gráfico&quot; os commits</li>
+</ul>
+
+<p><code class='inline prettyprint'>$ git log --oneline --graph</code></p>
+
+<h2>O que tem em um commit?</h2>
+
+<p><code class='inline prettyprint'>git show &lt;commit&gt;</code></p>
 </div>
       <div class='step'  data-x=1000 data-y=2000>
     
@@ -904,7 +931,7 @@ master
 
 <p><code class='inline prettyprint'>git stash branch &lt;nome-do-branch&gt;</code></p>
 </div>
-      <div class='step'  data-x=2000 data-y=4000>
+      <div class='step'  data-x=3000 data-y=4000>
     
 <h1>Ferramentas do Git</h1>
 
@@ -921,7 +948,7 @@ $ git blame -L 4,+5 README
 $ git blame -L '/conteudo/' README
 $ git blame v1.0.. -- README
 </code></pre></div>
-      <div class='step'  data-x=3000 data-y=4000>
+      <div class='step'  data-x=4000 data-y=4000>
     
 <h1>Ferramentas do Git</h1>
 
@@ -939,7 +966,7 @@ $ git checkout &lt;commit-ref&gt;
 </code></pre>
 <p>O_o</p>
 </div>
-      <div class='step'  data-x=4000 data-y=4000>
+      <div class='step'  data-x=5000 data-y=4000>
     
 <h1>Ferramentas do Git</h1>
 
@@ -961,7 +988,7 @@ $ git bisect start HEAD v0.0.2-7
 Bisecting: 2 revisions left to test after this (roughly 2 steps)
 [6a178b5...] colocando link para obter mais comentarios
 </code></pre></div>
-      <div class='step'  data-x=5000 data-y=4000>
+      <div class='step'  data-x=6000 data-y=4000>
     
 <h1>Ferramentas do Git</h1>
 
@@ -978,7 +1005,27 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 <p>Automático</p>
 
 <p><code class='inline prettyprint'>git bisect run &lt;script&gt;</code></p>
+</div>
+      <div class='step'  data-x=0 data-y=5000>
+    
+<h1>Resumão</h1>
 
+<h2>Basicão</h2>
+<pre><code class='prettyprint bash'>git init  /  git clone &lt;repo_path&gt;
+git add &lt;path&gt;
+git rm [-r] &lt;path&gt;
+git mv &lt;current_path&gt; &lt;new_path&gt;
+git commit [-m &lt;commit_message&gt;]
+</code></pre>
+<h2>Juntando os branches</h2>
+<pre><code class='prettyprint bash'>git merge &lt;branch&gt;
+git rebase &lt;branch&gt;
+</code></pre>
+<h2>Sincronizado com remoto</h2>
+<pre><code class='prettyprint bash'>git fetch [&lt;repo&gt;]
+git pull [&lt;repo&gt; [&lt;branch&gt;]] # == fetch + merge
+git push [&lt;repo&gt; [&lt;local_branch&gt;][[:]&lt;remove_branch&gt;]]
+</code></pre>
       </div>
     <script src="js/impress.js"></script>
     <script>impress().init();</script>
