@@ -1,12 +1,23 @@
-= id="intro" data-x="3000" data-y="1500" data-scale="100"
+= id="intro" data-x=0 data-y=0 data-scale="100"
 
 #Curso de Git
 
-<http://bit.ly/cursogitabril>
+<http://bit.ly/abrilcursogit>
 
 <https://github.com/abril/git-course>
 
 Baseado em <http://git-scm.com/book/pt-br>
+
+---
+= data-x=150000 data-y=0 data-scale="100"
+
+#Quem sou eu?
+
+Celestino Ferreira Gomes
+
+* <http://twitter.com/tinogomes>
+* <http://github.com/tinogomes>
+* <http://blog.tinogomes.com>
 
 ---
 = data-x=0 data-y=0
@@ -20,13 +31,6 @@ Baseado em <http://git-scm.com/book/pt-br>
 * Suporte robusto a desenvolvimento não linear (milhares de branches paralelos)
 * Totalmente distribuído
 * Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)
-
----
-= data-x=0 data-y=0 data-scale=0.01
-
-# O que é?
-
-Linux usava o BitKeeper para versionar o Linux. Em meiados de 2005, vence a licença de uso e Linus cria seu próprio SCM e, ainda em 2005, é usado oficialmente para versionar o código o Linux. Em 2007 é lançado para uso público.
 
 ---
 = data-x=1000 data-y=0
@@ -128,6 +132,11 @@ def put_raw_object(content, type)
   return sha1
 end
 ```
+
+<div class='note'>
+    <a href='https://github.com/mojombo/grit/blob/b49a6ff4ccd169eef6671263ccb29d3ead957697/lib/grit/git-ruby/internal/loose.rb#L89-L106'>Extraído do Grit</a>
+</div>
+
 
 ---
 = data-x=4000 data-y=0
@@ -477,7 +486,7 @@ See 'git help &lt;command&gt;' for more information on a specific command.
 
 Abaixo uma imagem que explica o ciclo de vida dos arquivos em um repositório *git*.
 
-![Ciclo de vida dos arquivos](http://git-scm.com/figures/18333fig0201-tn.png "File Status Lifecycle")
+![Ciclo de vida dos arquivos](./images/18333fig0201-tn.png "File Status Lifecycle")
 
 
 ---
@@ -658,7 +667,7 @@ $ git branch
 
 O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo:
 
-![Branch apontando para o histórico de commits](http://git-scm.com/figures/18333fig0303-tn.png "Branch apontando para o histórico de commits")
+![Branch apontando para o histórico de commits](./images/18333fig0303-tn.png "Branch apontando para o histórico de commits")
 
 ---
 = data-x=4000 data-y=2000
@@ -667,7 +676,7 @@ O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo
 
 `$ git branch testing` vai criar um novo branch, apontando para a referência atual.
 
-![Múltiplos branches apontando para o histórico de commits](http://git-scm.com/figures/18333fig0304-tn.png "Múltiplos branches apontando para o histórico de commits")
+![Múltiplos branches apontando para o histórico de commits](./images/18333fig0304-tn.png "Múltiplos branches apontando para o histórico de commits")
 
 ---
 = data-x=5000 data-y=2000
@@ -676,7 +685,7 @@ O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo
 
 Como o git sabe o branch em que você está atualmente? Ele tem um ponteiro especial chamado **HEAD**.
 
-![HEAD apontando para o branch em que você está](http://git-scm.com/figures/18333fig0305-tn.png "HEAD apontando para o branch em que você está")
+![HEAD apontando para o branch em que você está](./images/18333fig0305-tn.png "HEAD apontando para o branch em que você está")
 
 ---
 = data-x=6000 data-y=2000
@@ -687,7 +696,7 @@ Para mudar de branch, use `git checkout &lt;branch-name&gt;`
 
 `$ git checkout testing`
 
-![O HEAD aponta para outro branch quando você troca de branches](http://git-scm.com/figures/18333fig0306-tn.png "O HEAD aponta para outro branch quando você troca de branches")
+![O HEAD aponta para outro branch quando você troca de branches](./images/18333fig0306-tn.png "O HEAD aponta para outro branch quando você troca de branches")
 
 ---
 = data-x=7000 data-y=2000
@@ -700,7 +709,7 @@ Como juntar as coisas? Existem duas estratégia, sendo elas **merge** ou **rebas
 
 `$ git merge &lt;commit&gt;`
 
-![Git cria automaticamente um novo objeto commit que contém as modificações do merge](http://git-scm.com/figures/18333fig0317-tn.png "Git cria automaticamente um novo objeto commit que contém as modificações do merge")
+![Git cria automaticamente um novo objeto commit que contém as modificações do merge](./images/18333fig0317-tn.png "Git cria automaticamente um novo objeto commit que contém as modificações do merge")
 
 ---
 = data-x=8000 data-y=2000
@@ -729,7 +738,7 @@ $ git merge iss53
 
 ## Branch Rebase `git rebase &lt;base&gt; &lt;destino&gt;`
 
-![Fazendo o rebase em C4 de mudanças feitas em C3](http://git-scm.com/figures/18333fig0329-tn.png "Fazendo o rebase em C4 de mudanças feitas em C3")
+![Fazendo o rebase em C4 de mudanças feitas em C3](./images/18333fig0329-tn.png "Fazendo o rebase em C4 de mudanças feitas em C3")
 
 <br/>
 
@@ -749,7 +758,6 @@ $ git rebase master
 ---
 = data-x=10000 data-y=2000
 
-
 # Branches
 
 ## Branch Rebase
@@ -761,4 +769,131 @@ $ git checkout master
 $ git merge experiment
 ```
 <br/>
-![Fazendo um fast-forward no branch master](http://git-scm.com/figures/18333fig0330-tn.png "Fazendo um fast-forward no branch master")
+![Fazendo um fast-forward no branch master](./images/18333fig0330-tn.png "Fazendo um fast-forward no branch master")
+
+---
+= data-x=0 data-y=3000
+
+# Branches Remotos
+
+São referências ao estado de seus branches no seu repositório remoto. Quando se cria um repositório através do comando `git clone`, nosso repositório fica com uma referência para este repositório remoto, e é identificado pela chave **origin**.
+
+```bash
+$ cd ~/curso
+$ git clone ~/curso/repo-remoto meu-repo
+$ cd meu-repo
+$ git remote -v
+origin ~/curso/repo-remoto (fetch)
+origin ~/curso/repo-remoto (push)
+```
+
+---
+= data-x=0 data-y=3000 data-scale=0.01
+
+# Branches Remotos
+
+![Um comando clone do Git dá a você seu próprio branch master e origin/master faz referência ao branch master original.
+](./images/18333fig0322-tn.png "Um comando clone do Git dá a você seu próprio branch master e origin/master faz referência ao branch master original.
+")
+
+---
+= data-x=1000 data-y=3000
+
+# Branches Remotos
+
+## Atualizando as referências
+
+Antes de integrar com um branch remoto, é **muito** importante atualizar as referências remotas de nosso repositório.
+
+`git fetch &lt;repo&gt;`
+
+---
+= data-x=1000 data-y=3000 data-scale=0.01
+
+# Branches Remotos
+
+![O comando git fetch atualiza suas referências remotas](./images/18333fig0324-tn.png "O comando git fetch atualiza suas referências remotas")
+
+---
+= data-x=2000 data-y=3000
+
+# Branches Remotos
+
+## Integrando os branches
+
+Tá, mas como eu integro os branches?
+
+`git merge &lt;repo/branch&gt;`
+
+Ah, então, seu eu quero atualizar meu master com o remoto...
+
+`git merge origin/master` ou `git rebase origin/master`
+
+
+---
+= data-x=3000 data-y=3000
+
+# Branches Remotos
+
+## Integrando os branches II
+
+A atualização do seu branch com o remoto pode ser mais fácil. `git pull &lt;repo&gt; &lt;branch&gt;`
+
+`git pull` == `git fetch origin; git merge origin/master`
+
+Tá, mas eu prefiro fazer rebase.
+
+`git pull --rebase` = `git fetch origin; git merge origin/master`
+
+:)
+
+--- 
+= data-x=4000 data-y=3000
+
+# Branches Remotos
+
+Quero trabalhar em um branch remoto, como faz?
+
+`git checkout -b &lt;branch-local&gt; &lt;repo&gt;/&lt;branch-remoto&gt;`
+
+Exemplo:
+
+```bash
+$ git checkout -b fix origin/fix
+Branch fix set up to track remote branch origin/fix.
+Switched to a new branch "fix"
+$ git branch
+master
+* fix
+```
+
+---
+= data-x=5000 data-y=3000
+
+# Branches Remotos
+
+## Enviando para o servidor
+
+`git push &lt;repo&gt; [&lt;branch-origem&gt;:]&lt;branch-destino&gt;`
+
+`$ git push origin master`
+
+Se seu branch está "seguindo (tracking)" um branch remoto...
+
+`$ git push`
+
+Quando se faz um clone, normalmente seu branch `master` local está seguindo o `origin/master`
+
+
+
+
+--- 
+= data-x=6000 data-y=3000
+
+# Branches Remotos
+
+## Apagando branches remotos
+
+`git push &lt;repo&gt; :&lt;branch-destino&gt;`
+
+Sim, é um *push*, porém o `branch-origem` é **NADA**, ele apaga o branch no repositório remoto.

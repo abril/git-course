@@ -22,15 +22,27 @@
   <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
   </div>
     <div id="impress">
-    <div class='step'  id="intro" data-x="3000" data-y="1500" data-scale="100">
+    <div class='step'  id="intro" data-x=0 data-y=0 data-scale="100">
     
 <h1>Curso de Git</h1>
 
-<p><a href="http://bit.ly/cursogitabril">http://bit.ly/cursogitabril</a></p>
+<p><a href="http://bit.ly/abrilcursogit">http://bit.ly/abrilcursogit</a></p>
 
 <p><a href="https://github.com/abril/git-course">https://github.com/abril/git-course</a></p>
 
 <p>Baseado em <a href="http://git-scm.com/book/pt-br">http://git-scm.com/book/pt-br</a></p>
+</div>
+      <div class='step'  data-x=150000 data-y=0 data-scale="100">
+    
+<h1>Quem sou eu?</h1>
+
+<p>Celestino Ferreira Gomes</p>
+
+<ul>
+<li><a href="http://twitter.com/tinogomes">http://twitter.com/tinogomes</a></li>
+<li><a href="http://github.com/tinogomes">http://github.com/tinogomes</a></li>
+<li><a href="http://blog.tinogomes.com">http://blog.tinogomes.com</a></li>
+</ul>
 </div>
       <div class='step'  data-x=0 data-y=0>
     
@@ -45,12 +57,6 @@
 <li>Totalmente distribuído</li>
 <li>Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)</li>
 </ul>
-</div>
-      <div class='step'  data-x=0 data-y=0 data-scale=0.01>
-    
-<h1>O que é?</h1>
-
-<p>Linux usava o BitKeeper para versionar o Linux. Em meiados de 2005, vence a licença de uso e Linus cria seu próprio SCM e, ainda em 2005, é usado oficialmente para versionar o código o Linux. Em 2007 é lançado para uso público.</p>
 </div>
       <div class='step'  data-x=1000 data-y=0>
     
@@ -143,7 +149,11 @@ zlib(header + conteudo)
   end
   return sha1
 end
-</code></pre></div>
+</code></pre>
+<div class='note'>
+    <a href='https://github.com/mojombo/grit/blob/b49a6ff4ccd169eef6671263ccb29d3ead957697/lib/grit/git-ruby/internal/loose.rb#L89-L106'>Extraído do Grit</a>
+</div>
+</div>
       <div class='step'  data-x=4000 data-y=0>
     
 <h1>Objects Database</h1>
@@ -467,7 +477,7 @@ $ git clone https://github.com/abril/git-course.git curso-de-git
 
 <p>Abaixo uma imagem que explica o ciclo de vida dos arquivos em um repositório <em>git</em>.</p>
 
-<p><img src="http://git-scm.com/figures/18333fig0201-tn.png" alt="Ciclo de vida dos arquivos" title="File Status Lifecycle"></p>
+<p><img src="./images/18333fig0201-tn.png" alt="Ciclo de vida dos arquivos" title="File Status Lifecycle"></p>
 </div>
       <div class='step'  data-x=4000 data-y=1000>
     
@@ -615,7 +625,7 @@ $ git commit -m 'Primeiro commit'
 </code></pre>
 <p>O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo:</p>
 
-<p><img src="http://git-scm.com/figures/18333fig0303-tn.png" alt="Branch apontando para o histórico de commits" title="Branch apontando para o histórico de commits"></p>
+<p><img src="./images/18333fig0303-tn.png" alt="Branch apontando para o histórico de commits" title="Branch apontando para o histórico de commits"></p>
 </div>
       <div class='step'  data-x=4000 data-y=2000>
     
@@ -623,7 +633,7 @@ $ git commit -m 'Primeiro commit'
 
 <p><code class='inline prettyprint'>$ git branch testing</code> vai criar um novo branch, apontando para a referência atual.</p>
 
-<p><img src="http://git-scm.com/figures/18333fig0304-tn.png" alt="Múltiplos branches apontando para o histórico de commits" title="Múltiplos branches apontando para o histórico de commits"></p>
+<p><img src="./images/18333fig0304-tn.png" alt="Múltiplos branches apontando para o histórico de commits" title="Múltiplos branches apontando para o histórico de commits"></p>
 </div>
       <div class='step'  data-x=5000 data-y=2000>
     
@@ -631,7 +641,7 @@ $ git commit -m 'Primeiro commit'
 
 <p>Como o git sabe o branch em que você está atualmente? Ele tem um ponteiro especial chamado <strong>HEAD</strong>.</p>
 
-<p><img src="http://git-scm.com/figures/18333fig0305-tn.png" alt="HEAD apontando para o branch em que você está" title="HEAD apontando para o branch em que você está"></p>
+<p><img src="./images/18333fig0305-tn.png" alt="HEAD apontando para o branch em que você está" title="HEAD apontando para o branch em que você está"></p>
 </div>
       <div class='step'  data-x=6000 data-y=2000>
     
@@ -641,7 +651,7 @@ $ git commit -m 'Primeiro commit'
 
 <p><code class='inline prettyprint'>$ git checkout testing</code></p>
 
-<p><img src="http://git-scm.com/figures/18333fig0306-tn.png" alt="O HEAD aponta para outro branch quando você troca de branches" title="O HEAD aponta para outro branch quando você troca de branches"></p>
+<p><img src="./images/18333fig0306-tn.png" alt="O HEAD aponta para outro branch quando você troca de branches" title="O HEAD aponta para outro branch quando você troca de branches"></p>
 </div>
       <div class='step'  data-x=7000 data-y=2000>
     
@@ -653,7 +663,7 @@ $ git commit -m 'Primeiro commit'
 
 <p><code class='inline prettyprint'>$ git merge &lt;commit&gt;</code></p>
 
-<p><img src="http://git-scm.com/figures/18333fig0317-tn.png" alt="Git cria automaticamente um novo objeto commit que contém as modificações do merge" title="Git cria automaticamente um novo objeto commit que contém as modificações do merge"></p>
+<p><img src="./images/18333fig0317-tn.png" alt="Git cria automaticamente um novo objeto commit que contém as modificações do merge" title="Git cria automaticamente um novo objeto commit que contém as modificações do merge"></p>
 </div>
       <div class='step'  data-x=8000 data-y=2000>
     
@@ -677,7 +687,7 @@ $ git merge iss53
 
 <h2>Branch Rebase <code class='inline prettyprint'>git rebase &lt;base&gt; &lt;destino&gt;</code></h2>
 
-<p><img src="http://git-scm.com/figures/18333fig0329-tn.png" alt="Fazendo o rebase em C4 de mudanças feitas em C3" title="Fazendo o rebase em C4 de mudanças feitas em C3"></p>
+<p><img src="./images/18333fig0329-tn.png" alt="Fazendo o rebase em C4 de mudanças feitas em C3" title="Fazendo o rebase em C4 de mudanças feitas em C3"></p>
 
 <p><br/></p>
 <pre><code class='prettyprint bash'>$ git checkout -b experiment
@@ -702,7 +712,115 @@ $ git rebase master
 $ git merge experiment
 </code></pre>
 <p><br/>
-<img src="http://git-scm.com/figures/18333fig0330-tn.png" alt="Fazendo um fast-forward no branch master" title="Fazendo um fast-forward no branch master"></p>
+<img src="./images/18333fig0330-tn.png" alt="Fazendo um fast-forward no branch master" title="Fazendo um fast-forward no branch master"></p>
+</div>
+      <div class='step'  data-x=0 data-y=3000>
+    
+<h1>Branches Remotos</h1>
+
+<p>São referências ao estado de seus branches no seu repositório remoto. Quando se cria um repositório através do comando <code class='inline prettyprint'>git clone</code>, nosso repositório fica com uma referência para este repositório remoto, e é identificado pela chave <strong>origin</strong>.</p>
+<pre><code class='prettyprint bash'>$ cd ~/curso
+$ git clone ~/curso/repo-remoto meu-repo
+$ cd meu-repo
+$ git remote -v
+origin ~/curso/repo-remoto (fetch)
+origin ~/curso/repo-remoto (push)
+</code></pre></div>
+      <div class='step'  data-x=0 data-y=3000 data-scale=0.01>
+    
+<h1>Branches Remotos</h1>
+
+<p><img src="./images/18333fig0322-tn.png" alt="Um comando clone do Git dá a você seu próprio branch master e origin/master faz referência ao branch master original.
+" title="Um comando clone do Git dá a você seu próprio branch master e origin/master faz referência ao branch master original.
+"></p>
+</div>
+      <div class='step'  data-x=1000 data-y=3000>
+    
+<h1>Branches Remotos</h1>
+
+<h2>Atualizando as referências</h2>
+
+<p>Antes de integrar com um branch remoto, é <strong>muito</strong> importante atualizar as referências remotas de nosso repositório.</p>
+
+<p><code class='inline prettyprint'>git fetch &lt;repo&gt;</code></p>
+</div>
+      <div class='step'  data-x=1000 data-y=3000 data-scale=0.01>
+    
+<h1>Branches Remotos</h1>
+
+<p><img src="./images/18333fig0324-tn.png" alt="O comando git fetch atualiza suas referências remotas" title="O comando git fetch atualiza suas referências remotas"></p>
+</div>
+      <div class='step'  data-x=2000 data-y=3000>
+    
+<h1>Branches Remotos</h1>
+
+<h2>Integrando os branches</h2>
+
+<p>Tá, mas como eu integro os branches?</p>
+
+<p><code class='inline prettyprint'>git merge &lt;repo/branch&gt;</code></p>
+
+<p>Ah, então, seu eu quero atualizar meu master com o remoto...</p>
+
+<p><code class='inline prettyprint'>git merge origin/master</code> ou <code class='inline prettyprint'>git rebase origin/master</code></p>
+</div>
+      <div class='step'  data-x=3000 data-y=3000>
+    
+<h1>Branches Remotos</h1>
+
+<h2>Integrando os branches II</h2>
+
+<p>A atualização do seu branch com o remoto pode ser mais fácil. <code class='inline prettyprint'>git pull &lt;repo&gt; &lt;branch&gt;</code></p>
+
+<p><code class='inline prettyprint'>git pull</code> == <code class='inline prettyprint'>git fetch origin; git merge origin/master</code></p>
+
+<p>Tá, mas eu prefiro fazer rebase.</p>
+
+<p><code class='inline prettyprint'>git pull --rebase</code> = <code class='inline prettyprint'>git fetch origin; git merge origin/master</code></p>
+
+<p>:)</p>
+</div>
+      <div class='step'  data-x=4000 data-y=3000>
+    
+<h1>Branches Remotos</h1>
+
+<p>Quero trabalhar em um branch remoto, como faz?</p>
+
+<p><code class='inline prettyprint'>git checkout -b &lt;branch-local&gt; &lt;repo&gt;/&lt;branch-remoto&gt;</code></p>
+
+<p>Exemplo:</p>
+<pre><code class='prettyprint bash'>$ git checkout -b fix origin/fix
+Branch fix set up to track remote branch origin/fix.
+Switched to a new branch "fix"
+$ git branch
+master
+* fix
+</code></pre></div>
+      <div class='step'  data-x=5000 data-y=3000>
+    
+<h1>Branches Remotos</h1>
+
+<h2>Enviando para o servidor</h2>
+
+<p><code class='inline prettyprint'>git push &lt;repo&gt; [&lt;branch-origem&gt;:]&lt;branch-destino&gt;</code></p>
+
+<p><code class='inline prettyprint'>$ git push origin master</code></p>
+
+<p>Se seu branch está &quot;seguindo (tracking)&quot; um branch remoto...</p>
+
+<p><code class='inline prettyprint'>$ git push</code></p>
+
+<p>Quando se faz um clone, normalmente seu branch <code class='inline prettyprint'>master</code> local está seguindo o <code class='inline prettyprint'>origin/master</code></p>
+</div>
+      <div class='step'  data-x=6000 data-y=3000>
+    
+<h1>Branches Remotos</h1>
+
+<h2>Apagando branches remotos</h2>
+
+<p><code class='inline prettyprint'>git push &lt;repo&gt; :&lt;branch-destino&gt;</code></p>
+
+<p>Sim, é um <em>push</em>, porém o <code class='inline prettyprint'>branch-origem</code> é <strong>NADA</strong>, ele apaga o branch no repositório remoto.</p>
 
       </div>
     <script src="js/impress.js"></script>
