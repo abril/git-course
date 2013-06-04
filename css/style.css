@@ -42,7 +42,7 @@ h1, h2, h3, h4 {
 	letter-spacing: .1em;
 }
 
-.step:first-child h1 {
+#intro h1 {
 	color: #c33;
 	font-size: 3em;
 	text-transform: uppercase;
@@ -334,3 +334,6 @@ li {
 	font-weight: bold;
 }
 
+.note {
+	font-size: 0.5em;
+}
