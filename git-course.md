@@ -677,6 +677,19 @@ $ git commit -m 'Primeiro commit'
 ```
 
 ---
+= data-x=2000 data-y=2000 data-rotate-x=90
+
+# Dica
+
+```
+git config --global alias.st 'status'
+git config --global alias.one 'log --oneline'
+git config --global alias.oneg 'log --oneline --graph'
+git config --global alias.ci 'commit'
+git config --global alias.cim 'commit -m'
+```
+
+---
 = data-x=3000 data-y=2000
 
 #  Branches
