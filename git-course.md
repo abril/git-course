@@ -1,6 +1,6 @@
-= id="intro" data-x=0 data-y=0 data-scale="100"
+= id=intro data-z=-100000
 
-#Curso de Git
+# Curso de Git
 
 <http://bit.ly/abrilcursogit>
 
@@ -9,9 +9,9 @@
 Baseado em <http://git-scm.com/book/pt-br>
 
 ---
-= data-x=150000 data-y=0 data-scale="100"
+= data-x=1000 data-z=-100000
 
-#Quem sou eu?
+# Quem sou eu?
 
 Celestino Ferreira Gomes
 
@@ -57,7 +57,7 @@ Celestino Ferreira Gomes
 * References `.git/refs`
 
 ---
-= data-x=2000 data-y=0 data-scale=0.01
+= data-x=2000 data-y=0 data-z=-100000
 
 # Estrutura de Controle
 
@@ -106,7 +106,7 @@ zlib(header + conteudo)
 `.git/objects/2e/6f9b0d5885b6010f9167787445617f553a735f`
 
 ---
-= data-x=3000 data-y=0 data-scale=0.01
+= data-x=3000 data-y=0 data-z=-100000
 
 # Objects Database
 
@@ -119,10 +119,10 @@ def put_raw_object(content, type)
   store = header + content
 
   sha1 = Digest::SHA1.hexdigest(store)
-  path = @directory+'/'+sha1[0...2]+'/'+sha1[2..40]
+  path = @directory + '/' + sha1[0...2] + '/' + sha1[2..40]
 
   if !File.exists?(path)
-    content = data-scale=2Zlib::Deflate.deflate(store)
+    content = data - scale = 2Zlib::Deflate.deflate(store)
 
     FileUtils.mkdir_p(@directory+'/'+sha1[0...2])
     File.open(path, 'wb') do |f|
@@ -772,6 +772,19 @@ $ git merge experiment
 ![Fazendo um fast-forward no branch master](./images/18333fig0330-tn.png "Fazendo um fast-forward no branch master")
 
 ---
+= data-x=11000 data-y=2000
+
+# Tags
+
+Para listas as tags existes 
+
+`git tag`
+
+Para criar uma nova tag
+
+`git tag &lt;tagname&gt; &lt;commit&gt;`
+
+---
 = data-x=0 data-y=3000
 
 # Branches Remotos
@@ -780,7 +793,7 @@ São referências ao estado de seus branches no seu repositório remoto. Quando 
 
 ```bash
 $ cd ~/curso
-$ git clone ~/curso/repo-remoto meu-repo
+$ git clone ~/curso/repo-remoto celestino
 $ cd meu-repo
 $ git remote -v
 origin ~/curso/repo-remoto (fetch)
@@ -788,7 +801,7 @@ origin ~/curso/repo-remoto (push)
 ```
 
 ---
-= data-x=0 data-y=3000 data-scale=0.01
+= data-x=0 data-y=3000 data-z=-100000
 
 # Branches Remotos
 
@@ -801,6 +814,24 @@ origin ~/curso/repo-remoto (push)
 
 # Branches Remotos
 
+Para adicionar um repositório remoto ao seu repositório local, use:
+
+`git remote add &lt;name&gt; &lt;repositorio&gt;`
+
+Exemplo:
+
+```bash
+$ cd ~/curso
+$ mkdir joao ; cd joao
+$ git init
+$ git remote add celestino ~/meu-repo
+```
+
+---
+= data-x=2000 data-y=3000
+
+# Branches Remotos
+
 ## Atualizando as referências
 
 Antes de integrar com um branch remoto, é **muito** importante atualizar as referências remotas de nosso repositório.
@@ -808,14 +839,14 @@ Antes de integrar com um branch remoto, é **muito** importante atualizar as ref
 `git fetch &lt;repo&gt;`
 
 ---
-= data-x=1000 data-y=3000 data-scale=0.01
+= data-x=2000 data-y=3000 data-z=-100000
 
 # Branches Remotos
 
 ![O comando git fetch atualiza suas referências remotas](./images/18333fig0324-tn.png "O comando git fetch atualiza suas referências remotas")
 
 ---
-= data-x=2000 data-y=3000
+= data-x=3000 data-y=3000
 
 # Branches Remotos
 
@@ -831,7 +862,7 @@ Ah, então, seu eu quero atualizar meu master com o remoto...
 
 
 ---
-= data-x=3000 data-y=3000
+= data-x=3000 data-y=3000 data-z=-100000
 
 # Branches Remotos
 
@@ -884,10 +915,7 @@ Se seu branch está "seguindo (tracking)" um branch remoto...
 
 Quando se faz um clone, normalmente seu branch `master` local está seguindo o `origin/master`
 
-
-
-
---- 
+---
 = data-x=6000 data-y=3000
 
 # Branches Remotos
@@ -897,3 +925,152 @@ Quando se faz um clone, normalmente seu branch `master` local está seguindo o `
 `git push &lt;repo&gt; :&lt;branch-destino&gt;`
 
 Sim, é um *push*, porém o `branch-origem` é **NADA**, ele apaga o branch no repositório remoto.
+
+---
+= data-x=7000 data-y=3000
+
+# Tags Remotas
+
+Assim como os branches, sempre é necessário atualizar as referências das tags
+
+`git fetch --tags`
+
+Para enviar uma tag criada no repositório local para o remoto.
+
+`git push origin &lt;tagname&gt;` 
+
+Para enviar todas as tags locais
+
+`git push origin --tags`
+
+
+---
+= data-x=0 data-y=4000
+
+# Fazendo Stash
+
+*Stash* é um "branch local" do git que você pode colocar suas mudanças do seu diretório de trabalho, sem perder, e voltar seu branch para um estado estável. Funciona como uma pilha.
+
+`git stash`
+
+Listar os *stashes* disponíveis:
+
+`git stash list`
+
+---
+= data-x=1000 data-y=4000
+
+# Fazendo Stash
+
+Para voltar as mudanças para seu diretório de trabalho.
+
+`git stash apply [&lt;stash-index&gt;]`
+
+Pode ser que, no momento de voltar seu trabalho do stash, o arquivo original não esteja no mesmo estado do seu conteúdo stashed, então, uma forma de tentar reaplicar as mudanças é adicionando a opção  `--index`
+
+`git stash apply --index`
+
+---
+= data-x=2000 data-y=4000
+
+# Fazendo Stash
+
+Você pode remover um stash
+
+`git stash drop [&lt;stage-index&gt;]`
+
+Você pode aplicar o último stash e removê-lo ao mesmo tempo.
+
+`git stash pop`
+
+Criar um branch do stash
+
+`git stash branch &lt;nome-do-branch&gt;`
+
+---
+= data-x=2000 data-y=4000
+
+# Ferramentas do Git
+
+## Debugando
+
+Pode ser que você precise descobrir quem escreveu aqui no arquivo.
+
+`git blame &lt;commit-ref&gt;` [-L &lt;linhas_ou_regexp&gt;] &lt;arquivo&gt;
+
+Exemplo:
+
+```bash
+$ git blame README
+$ git blame -L 4,8 README
+$ git blame -L 4,+5 README
+$ git blame -L '/conteudo/' README
+$ git blame v1.0.. -- README
+```
+
+---
+= data-x=3000 data-y=4000
+
+# Ferramentas do Git
+
+## Debugando II - Pesquisa Binária
+
+Você precisa descobri em que ponto no histórico de *commits* algum bug foi introduzido
+
+```bash
+$ git log
+$ git checkout &lt;commit-ref&gt;
+# verificar se está ok ou não
+$ git checkout &lt;commit-ref&gt;
+# verificar se está ok ou não
+$ git checkout &lt;commit-ref&gt;
+# verificar se está ok ou não
+...
+```
+
+O_o
+
+---
+= data-x=4000 data-y=4000
+
+# Ferramentas do Git
+
+## Debugando II - Pesquisa Binária
+
+`git bisect start [&lt;bad-commit&gt;] [&lt;good-commit&gt;]`
+
+Exemplo:
+
+```bash
+$ git log --oneline
+        817a46d (HEAD, master) atualizando README
+        28b3818 usando class com prefixo padrao
+        ec466bb passando o numero da pagina atual
+==&gt;     6a178b5 colocando link para obter mais comentarios
+        1110218 rota para listar comentarios por pagina
+        fb240bb paginando comentarios no model
+        291b8ef (tag: v0.0.2-7) Merge branch 'master'
+        638116b Configurando ambiente
+$ git bisect start HEAD v0.0.2-7
+Bisecting: 2 revisions left to test after this (roughly 2 steps)
+[6a178b5...] colocando link para obter mais comentarios
+```
+
+---
+= data-x=5000 data-y=4000
+
+# Ferramentas do Git
+
+## Debugando II - Pesquisa Binária
+
+Declarar o estado do commit
+
+`git bisect &lt;bad|good&gt;`
+
+Voltar ao estado atual do branch
+
+`git bisect reset`
+
+Automático
+
+`git bisect run &lt;script&gt;`
