@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/reset.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="css/favicon.png" />
+    <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="css/style.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step'  id="intro" data-x="3000" data-y="1500" data-scale="100">
+    
+<h1>Curso de Git</h1>
+
+<p><a href="http://bit.ly/cursogitabril">http://bit.ly/cursogitabril</a></p>
+
+<p><a href="https://github.com/abril/git-course">https://github.com/abril/git-course</a></p>
+
+<p>Baseado em <a href="http://git-scm.com/book/pt-br">http://git-scm.com/book/pt-br</a></p>
+</div>
+      <div class='step'  data-x=0 data-y=0>
+    
+<h1>O que é?</h1>
+
+<ul>
+<li>Criado em 2005 por Linus Torvalds*</li>
+<li>Necessidade, linux-kernel-devs</li>
+<li>Velocidade</li>
+<li>Design simples</li>
+<li>Suporte robusto a desenvolvimento não linear (milhares de branches paralelos)</li>
+<li>Totalmente distribuído</li>
+<li>Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)</li>
+</ul>
+</div>
+      <div class='step'  data-x=0 data-y=0 data-scale=0.01>
+    
+<h1>O que é?</h1>
+
+<p>Linux usava o BitKeeper para versionar o Linux. Em meiados de 2005, vence a licença de uso e Linus cria seu próprio SCM e, ainda em 2005, é usado oficialmente para versionar o código o Linux. Em 2007 é lançado para uso público.</p>
+</div>
+      <div class='step'  data-x=1000 data-y=0>
+    
+<h1>Características Básicas</h1>
+
+<ul>
+<li>Controle de versão distribuido (DVCS)</li>
+<li>Gerenciamento de conteúdo e não arquivos</li>
+<li>Branches como unidade de trabalho</li>
+<li>SHA1 para associação e verificação</li>
+<li>Staging index (preparação para <em>commit</em>)
+<li style='color: #eee'>Não é o subversion</li></li>
+</ul>
+</div>
+      <div class='step'  data-x=2000 data-y=0>
+    
+<h1>Estrutura de Controle</h1>
+
+<ul>
+<li>Diretório <code class='inline prettyprint'>.git</code> na raíz de cada projeto</li>
+<li>Arquivos de configuração <code class='inline prettyprint'>.git/config</code></li>
+<li>Index <code class='inline prettyprint'>.git/index</code></li>
+<li>Hooks <code class='inline prettyprint'>.git/hooks</code></li>
+<li>Object Database <code class='inline prettyprint'>.git/objects</code></li>
+<li>References <code class='inline prettyprint'>.git/refs</code></li>
+</ul>
+</div>
+      <div class='step'  data-x=2000 data-y=0 data-scale=0.01>
+    
+<h1>Estrutura de Controle</h1>
+<pre><code class='prettyprint '>.git
+|-- COMMIT_EDITMSG  # última mensagem de commit
+|-- HEAD            # referência atual do checkout
+|-- config          # arquivo de configuração do repositório
+|-- description     # arquivo de descrição do repositório
+|-- hooks           # diretório com arquivos de gatilhos
+|   |-- ...
+|-- index           # mudanças para commit
+|-- info
+|   |-- exclude     # configuração de arquivos p/ ñ versionamento
+|   +-- refs        # lista de branches e suas referências
+|-- logs
+|   |-- ...         # arquivos de log das mudanças
+|-- objects
+|   |-- info
+|   │   +-- packs   # informações sobre pacotes
+|   +-- pack
+|       |-- ...     # pacotes e indices
+|-- packed-refs
+|-- refs
+    |-- heads
+    +-- tags
+</code></pre></div>
+      <div class='step'  data-x=3000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<p>Todos os objetos se registram da mesma forma</p>
+<pre><code class='prettyprint '>conteudo
+
+header + conteudo
+
+"2e6f9b0d5885b6010f9167787445617f553a735f"
+
+zlib(header + conteudo)
+
+</code></pre>
+<p><code class='inline prettyprint'>.git/objects/2e/6f9b0d5885b6010f9167787445617f553a735f</code></p>
+</div>
+      <div class='step'  data-x=3000 data-y=0 data-scale=0.01>
+    
+<h1>Objects Database</h1>
+<pre><code class='prettyprint ruby'>def put_raw_object(content, type)
+  size = content.length.to_s
+  LooseStorage.verify_header(type, size)
+
+  header = "#{type} #{size}\0"
+  store = header + content
+
+  sha1 = Digest::SHA1.hexdigest(store)
+  path = @directory+'/'+sha1[0...2]+'/'+sha1[2..40]
+
+  if !File.exists?(path)
+    content = data-scale=2Zlib::Deflate.deflate(store)
+
+    FileUtils.mkdir_p(@directory+'/'+sha1[0...2])
+    File.open(path, 'wb') do |f|
+      f.write content
+    end
+  end
+  return sha1
+end
+</code></pre></div>
+      <div class='step'  data-x=4000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<ul>
+<li>blob - É o menor objeto git e representa um arquivo.</li>
+<li>tree - É um container de <em>trees</em> e <em>blobs</em></li>
+<li>commit - É um &quot;snaphot&quot; do estado atual de uma <em>tree</em></li>
+<li>tag - aponta para um <em>commit</em></li>
+</ul>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>type</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan='2'>data</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+      <div class='step'  data-x=5000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<h2>blobs</h2>
+
+<div class='list blobs'>
+    <ul class='keys'>
+        <li>Rakefile</li>
+        <li>source.rb</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values'>
+        <li class='blob'>blob: 2e6f9b</li>
+        <li class='blob'>blob: 7034fe</li>
+        <li class='blob'>blob: 8034f1</li>
+    </ul>
+</div>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>blob</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class='data'>
+            <td colspan='2'>file data</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>2e6f9b0d5885b6010f9167787445617f553a735f</code></p>
+</div>
+      <div class='step'  data-x=6000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<h2>trees</h2>
+
+<div class='list trees'>
+    <ul class='keys'>
+        <li>/</li>
+        <li>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='tree'>tree: 1a2b3c</li>
+        <li class='blob'>blob: 2e6f9b</li>
+        <li class='tree'>tree: 2b3c4d</li>
+        <li class='blob'>blob: 7034fe</li>
+        <li class='tree'>tree: 5b32ad</li>
+        <li class='blob'>blob: 8034f1</li>
+    </ul>
+</div>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>tree</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan='2'>
+                040000 tree 1a2b3c... /<br/>
+                100644 blog 2e6f9b... Rakefile<br/>
+                ...
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>ob772ec8eb9ae8952c3c1e56a9ffbe49385cc83a</code></p>
+</div>
+      <div class='step'  data-x=7000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<h2>commits (snapshots)</h2>
+
+<div class='list commits'>
+    <ul class='keys'>
+        <li>&nbsp;</li>
+        <li>/</li>
+        <li>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='commit'>commit: 3e4c5d</li>
+        <div class="tree-container">
+            <li class='tree'>tree: 1a2b3c</li>
+            <li class='blob'>blob: 2e6f9b</li>
+            <li class='tree'>tree: 2b3c4d</li>
+            <li class='blob'>blob: 7034fe</li>
+            <li class='tree'>tree: 5b32ad</li>
+            <li class='blob'>blob: 8034f1</li>
+        </div>
+    </ul>
+</div>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>commit</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class='data'>
+            <td colspan='2'>
+                tree ob772e...<br/>
+                parent 12cb23...<br/>
+                author Someone &lt;aliress&gt;<br/>
+                commiter Someone &lt;aliress&gt;<br/>
+                commit message<br/>
+                ...
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>7216b02627bc3d6ef57008f7ff67f0f8f13f488e</code></p>
+</div>
+      <div class='step'  data-x=8000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<h2>commits</h2>
+
+<div class='only-commits'>
+    <ul class='keys'>
+        <li>&nbsp;</li>
+        <li>/</li>
+        <li class='file-changed'>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li class='file-changed'>source_test.rb</li>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='commit'>commit: 3e4c5d</li>
+        <div class="tree-container">
+            <li class='tree'>tree: 1a2b3c</li>
+            <li class='blob'>blob: 2e6f9b</li>
+            <li class='tree'>tree: 2b3c4d</li>
+            <li class='blob'>blob: 7034fe</li>
+            <li class='tree'>tree: 5b32ad</li>
+            <li class='blob'>blob: 8034f1</li>
+        </div>
+    </ul>
+    <ul class='values tree-container'>
+        <li class='commit'>commit: 61db26</li>
+        <div class="tree-container">
+            <li class='tree'>tree: 1a2b3c</li>
+            <li class='blob-changed'>blob: 41d300</li>
+            <li class='tree'>tree: 2b3c4d</li>
+            <li class='blob'>blob: 7034fe</li>
+            <li class='tree'>tree: 5b32ad</li>
+            <li class='blob-changed'>blob: 2a03fb</li>
+        </div>
+    </ul>
+</div>
+</div>
+      <div class='step'  data-x=9000 data-y=0>
+    
+<h1>Objects Database</h1>
+
+<h2>tags</h2>
+
+<div class='list tags'>
+    <ul class='keys'>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>/</li>
+        <li>Rakefile</li>
+        <li>/lib</li>
+        <li>source.rb</li>
+        <li>/test</li>
+        <li>source_test.rb</li>
+    </ul>
+    <ul class='values'>
+        <li class='tag'>tag: 6e7a8b</li>
+        <div class="tree-container">
+            <li class='commit'>commit: 3e4c5d</li>
+            <div class="tree-container">
+                <li class='tree'>tree: 1a2b3c</li>
+                <li class='blob'>blob: 2e6f9b</li>
+                <li class='tree'>tree: 2b3c4d</li>
+                <li class='blob'>blob: 7034fe</li>
+                <li class='tree'>tree: 5b32ad</li>
+                <li class='blob'>blob: 8034f1</li>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<table class='objeto'>
+    <thead>
+        <tr>
+            <td>tag</td>
+            <td>size</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class='data'>
+            <td colspan='2'>
+                object 7216b0...<br/>
+                tag tag-name<br/>
+                ...
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><code class='inline prettyprint'>0bc9a42eb66d7ae36bf44af8ff5a3888e8a02d12</code></p>
+</div>
+      <div class='step'  data-x=10000 data-y=0>
+    
+<h1>Instalação</h1>
+
+<p>Acessar o site oficial do Git e fazer o download de acordo com seu sistema operacional.</p>
+
+<p><a href="http://git-scm.com/downloads">http://git-scm.com/downloads</a></p>
+</div>
+      <div class='step'  data-x=0 data-y=1000>
+    
+<h1>Configurando</h1>
+
+<p>Sintaxe:</p>
+
+<p><code class='inline prettyprint'>$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]</code></p>
+
+<ol>
+<li><p>Sistema <code class='inline prettyprint'>--system</code>: <code class='inline prettyprint'>/etc/gitconfig</code></p>
+<pre><code class='prettyprint bash'>$ git config --system
+</code></pre></li>
+<li><p>Global <code class='inline prettyprint'>--global</code>: <code class='inline prettyprint'>~/.gitconfig</code></p>
+<pre><code class='prettyprint bash'>$ git config --global user.name "Celestino Gomes"
+$ git config --global user.email "celestino.gomes@abril.com.br"
+</code></pre></li>
+<li><p>Repositório <code class='inline prettyprint'>--local</code>: <code class='inline prettyprint'>./.git/config</code> Esse somente em um repositório ;)</p>
+<pre><code class='prettyprint bash'>$ git config [--local] core.ignorecase true
+</code></pre></li>
+</ol>
+<pre><code class='prettyprint bash'>$ git config user.name   # Imprime "Celestino Gomes"
+$ git config --list      # Lista as chaves configuradas para o repo atual
+</code></pre></div>
+      <div class='step'  data-x=1000 data-y=1000>
+    
+<h1>Obtendo ajuda</h1>
+<pre><code class='prettyprint bash'>$ git help
+
+usage: git &lt;command&gt; [&lt;args&gt;]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   ...
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+See 'git help &lt;command&gt;' for more information on a specific command.
+</code></pre></div>
+      <div class='step'  data-x=2000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Criando um repositório local.</h2>
+
+<ol>
+<li><p><code class='inline prettyprint'>git init</code>: Cria um repositório a partir do diretório atual. Irá criar um diretório <code class='inline prettyprint'>.git</code> no diretório atual.</p></li>
+<li><p><code class='inline prettyprint'>git clone</code>: Cria um repositório a partir de um outro repositório já existente.</p>
+<pre><code class='prettyprint bash'>$ cd repos
+$ git clone https://github.com/abril/git-course.git
+</code></pre><pre><code class='prettyprint bash'>$ cd repos
+$ git clone https://github.com/abril/git-course.git curso-de-git
+</code></pre></li>
+</ol>
+</div>
+      <div class='step'  data-x=3000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Gravando as mudanças no repositório.</h2>
+
+<p>Abaixo uma imagem que explica o ciclo de vida dos arquivos em um repositório <em>git</em>.</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0201-tn.png" alt="Ciclo de vida dos arquivos" title="File Status Lifecycle"></p>
+</div>
+      <div class='step'  data-x=4000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Verificando o estado dos seus arquivos</h2>
+<pre><code class='prettyprint bash'>$ git status
+# On branch master
+nothing to commit (working directory clean)
+
+$ echo 'conteudo' > README
+$ git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#    README
+nothing added to commit but untracked files present (use "git add" to track)
+</code></pre></div>
+      <div class='step'  data-x=5000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Preparando suas mudanças para integração</h2>
+
+<p><code class='inline prettyprint'>$ git add README</code></p>
+</div>
+      <div class='step'  data-x=6000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Verificando o estado dos seus arquivos II</h2>
+<pre><code class='prettyprint bash'>$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#   new file:   README
+#
+</code></pre></div>
+      <div class='step'  data-x=7000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Ignorando Arquivos</h2>
+
+<p><code class='inline prettyprint'>$ cat .gitignore</code></p>
+
+<p>É comum usar para ignorar arquivos temporários, log e configurações locais.</p>
+
+<p><code class='inline prettyprint'>$ echo '*.log' >> .gitignore</code></p>
+</div>
+      <div class='step'  data-x=8000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Visualizando suas modificações (selecionadas ou não)</h2>
+<pre><code class='prettyprint bash'>$ git diff
+diff --git a/README b/README
+index 0cfbf08..bcaa3b0 100644
+--- a/README
++++ b/README
+@@ -1 +1,2 @@
+ 2
++conteudo
+</code></pre></div>
+      <div class='step'  data-x=9000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Fazendo <em>commit</em> de suas mudanças</h2>
+
+<p><code class='inline prettyprint'>$ git commit -m 'meu primeiro commit no git \o/'</code></p>
+</div>
+      <div class='step'  data-x=10000 data-y=1000>
+    
+<h1>O Básico</h1>
+
+<h2>Removendo arquivos</h2>
+
+<p><code class='inline prettyprint'>$ git rm arquivo</code></p>
+
+<h2>Movendo arquivos</h2>
+
+<p><code class='inline prettyprint'>git mv README LEIAME</code></p>
+
+<p>É a mesma coisa que:</p>
+<pre><code class='prettyprint '>$ mv README LEIAME
+$ git rm README
+$ git add LEIAME
+</code></pre></div>
+      <div class='step'  data-x=0 data-y=2000>
+    
+<h1>O Básico</h1>
+
+<h2>Visualizando o Histórico de commits</h2>
+<pre><code class='prettyprint bash'>$ git log
+$ git log -p 2
+$ git log --pretty=oneline|short|full|fuller
+$ git log --graph
+$ git log -2
+$ git log --since=2.weeks
+</code></pre>
+<h2>Ferramentas visuais</h2>
+
+<p><code class='inline prettyprint'>$ gitk</code></p>
+</div>
+      <div class='step'  data-x=1000 data-y=2000>
+    
+<h1>O Básico</h1>
+
+<h2>Modificando seu último commit</h2>
+
+<p><code class='inline prettyprint'>git commit --amend</code></p>
+
+<p><strong>Use apenas em seu repositório local, antes de integrar com outros repos</strong></p>
+
+<h2>Tirando um arquivo da área de seleção</h2>
+
+<p><code class='inline prettyprint'>$ git reset HEAD</code></p>
+
+<h2>Desfazendo um arquivo modificado</h2>
+
+<p><code class='inline prettyprint'>$ git checkout -- arquivo</code></p>
+</div>
+      <div class='step'  data-x=2000 data-y=2000>
+    
+<h1>O Básico</h1>
+
+<h2>Fluxo completo</h2>
+<pre><code class='prettyprint bash'>$ git init # git clone &lt;repo&gt;
+$ git add .
+$ git commit -m 'Primeiro commit'
+</code></pre></div>
+      <div class='step'  data-x=3000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>No <em>git</em>, estamos sempre trabalhando em um <em>branch</em>. O nome do <em>branch</em> padrão é o <strong>master</strong>. Mas o que é um branch no git?</p>
+<pre><code class='prettyprint bash'>$ git branch
+* master
+</code></pre>
+<p>O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo:</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0303-tn.png" alt="Branch apontando para o histórico de commits" title="Branch apontando para o histórico de commits"></p>
+</div>
+      <div class='step'  data-x=4000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p><code class='inline prettyprint'>$ git branch testing</code> vai criar um novo branch, apontando para a referência atual.</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0304-tn.png" alt="Múltiplos branches apontando para o histórico de commits" title="Múltiplos branches apontando para o histórico de commits"></p>
+</div>
+      <div class='step'  data-x=5000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>Como o git sabe o branch em que você está atualmente? Ele tem um ponteiro especial chamado <strong>HEAD</strong>.</p>
+
+<p><img src="http://git-scm.com/figures/18333fig0305-tn.png" alt="HEAD apontando para o branch em que você está" title="HEAD apontando para o branch em que você está"></p>
+</div>
+      <div class='step'  data-x=6000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>Para mudar de branch, use <code class='inline prettyprint'>git checkout &lt;branch-name&gt;</code></p>
+
+<p><code class='inline prettyprint'>$ git checkout testing</code></p>
+
+<p><img src="http://git-scm.com/figures/18333fig0306-tn.png" alt="O HEAD aponta para outro branch quando você troca de branches" title="O HEAD aponta para outro branch quando você troca de branches"></p>
+</div>
+      <div class='step'  data-x=7000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<p>Como juntar as coisas? Existem duas estratégia, sendo elas <strong>merge</strong> ou <strong>rebase</strong></p>
+
+<h2>Branch Merge</h2>
+
+<p><code class='inline prettyprint'>$ git merge &lt;commit&gt;</code></p>
+
+<p><img src="http://git-scm.com/figures/18333fig0317-tn.png" alt="Git cria automaticamente um novo objeto commit que contém as modificações do merge" title="Git cria automaticamente um novo objeto commit que contém as modificações do merge"></p>
+</div>
+      <div class='step'  data-x=8000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<h2>Branch Merge</h2>
+<pre><code class='prettyprint bash'>$ git checkout -b iss53
+$ git add .
+$ git commit -m 'c3'
+$ git add .
+$ git commit -m 'c5'
+# ------------------
+$ git checkout master
+$ git add .
+$ git commit -m 'c4'
+$ git merge iss53
+</code></pre></div>
+      <div class='step'  data-x=9000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<h2>Branch Rebase <code class='inline prettyprint'>git rebase &lt;base&gt; &lt;destino&gt;</code></h2>
+
+<p><img src="http://git-scm.com/figures/18333fig0329-tn.png" alt="Fazendo o rebase em C4 de mudanças feitas em C3" title="Fazendo o rebase em C4 de mudanças feitas em C3"></p>
+
+<p><br/></p>
+<pre><code class='prettyprint bash'>$ git checkout -b experiment
+$ git add .
+$ git commit -m 'c3'
+# ------------------
+$ git checkout master
+$ git add .
+$ git commit -m 'c4'
+# ------------------
+$ git checkout experiment
+$ git rebase master
+</code></pre></div>
+      <div class='step'  data-x=10000 data-y=2000>
+    
+<h1>Branches</h1>
+
+<h2>Branch Rebase</h2>
+
+<p>Então é só fazer a atualização do master para o experiment.</p>
+<pre><code class='prettyprint bash'>$ git checkout master
+$ git merge experiment
+</code></pre>
+<p><br/>
+<img src="http://git-scm.com/figures/18333fig0330-tn.png" alt="Fazendo um fast-forward no branch master" title="Fazendo um fast-forward no branch master"></p>
+
+      </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
