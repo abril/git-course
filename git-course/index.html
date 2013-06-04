@@ -31,6 +31,8 @@
 <p><a href="https://github.com/abril/git-course">https://github.com/abril/git-course</a></p>
 
 <p>Baseado em <a href="http://git-scm.com/book/pt-br">http://git-scm.com/book/pt-br</a></p>
+
+<p><span style="color:#eee;">Navege com as setas</span></p>
 </div>
       <div class='step'  data-x=1000 data-z=-100000>
     
@@ -460,7 +462,7 @@ See 'git help &lt;command&gt;' for more information on a specific command.
 <h2>Criando um repositório local.</h2>
 
 <ol>
-<li><p><code class='inline prettyprint'>git init</code>: Cria um repositório a partir do diretório atual. Irá criar um diretório <code class='inline prettyprint'>.git</code> no diretório atual.</p></li>
+<li><p><code class='inline prettyprint'>git init</code>: Cria um repositório a partir do diretório atual.</p></li>
 <li><p><code class='inline prettyprint'>git clone</code>: Cria um repositório a partir de um outro repositório já existente.</p>
 <pre><code class='prettyprint bash'>$ cd repos
 $ git clone https://github.com/abril/git-course.git
@@ -543,7 +545,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 <h2>Visualizando suas modificações (selecionadas ou não)</h2>
 
-<p><code class='inline prettyprint'>git diff [--cached] [--] [&lt;path&gt;]</code></p>
+<p><code class='inline prettyprint'>git diff [--cached] [[--] &lt;path&gt;]</code></p>
 
 <p>Exemplo:</p>
 <pre><code class='prettyprint bash'>$ git diff
@@ -1012,6 +1014,7 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 
 <h2>Basicão</h2>
 <pre><code class='prettyprint bash'>git init  /  git clone &lt;repo_path&gt;
+git config
 git add &lt;path&gt;
 git rm [-r] &lt;path&gt;
 git mv &lt;current_path&gt; &lt;new_path&gt;

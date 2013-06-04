@@ -8,6 +8,8 @@
 
 Baseado em <http://git-scm.com/book/pt-br>
 
+<span style="color:#eee;">Navege com as setas</span>
+
 ---
 = data-x=1000 data-z=-100000
 
@@ -463,7 +465,7 @@ See 'git help &lt;command&gt;' for more information on a specific command.
 
 ## Criando um repositório local.
 
-1. `git init`: Cria um repositório a partir do diretório atual. Irá criar um diretório `.git` no diretório atual.
+1. `git init`: Cria um repositório a partir do diretório atual.
 
 2. `git clone`: Cria um repositório a partir de um outro repositório já existente.
 
@@ -564,7 +566,7 @@ $ git status
 
 ## Visualizando suas modificações (selecionadas ou não)
 
-`git diff [--cached] [--] [&lt;path&gt;]`
+`git diff [--cached] [[--] &lt;path&gt;]`
 
 Exemplo:
 
@@ -1105,6 +1107,7 @@ Automático
 
 ```bash
 git init  /  git clone &lt;repo_path&gt;
+git config
 git add &lt;path&gt;
 git rm [-r] &lt;path&gt;
 git mv &lt;current_path&gt; &lt;new_path&gt;
