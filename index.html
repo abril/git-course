@@ -22,7 +22,7 @@
   <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
   </div>
     <div id="impress">
-    <div class='step'  id=intro data-z=-100000>
+    <div class='step'  id=intro>
     
 <h1>Curso de Git</h1>
 
@@ -34,7 +34,7 @@
 
 <p><span style="color:#eee;">Navege com as setas</span></p>
 </div>
-      <div class='step'  data-x=1000 data-z=-100000>
+      <div class='step' >
     
 <h1>Quem sou eu?</h1>
 
@@ -46,7 +46,7 @@
 <li><a href="http://blog.tinogomes.com">http://blog.tinogomes.com</a></li>
 </ul>
 </div>
-      <div class='step'  data-x=0 data-y=0>
+      <div class='step' >
     
 <h1>O que é?</h1>
 
@@ -60,7 +60,7 @@
 <li>Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)</li>
 </ul>
 </div>
-      <div class='step'  data-x=1000 data-y=0>
+      <div class='step' >
     
 <h1>Características Básicas</h1>
 
@@ -73,7 +73,7 @@
 <li style='color: #eee'>Não é o subversion</li></li>
 </ul>
 </div>
-      <div class='step'  data-x=2000 data-y=0>
+      <div class='step' >
     
 <h1>Estrutura de Controle</h1>
 
@@ -86,7 +86,7 @@
 <li>References <code class='inline prettyprint'>.git/refs</code></li>
 </ul>
 </div>
-      <div class='step'  data-x=2000 data-y=0 data-z=-100000>
+      <div class='step'  data-rotate-x=90>
     
 <h1>Estrutura de Controle</h1>
 <pre><code class='prettyprint '>.git
@@ -112,7 +112,7 @@
     |-- heads
     +-- tags
 </code></pre></div>
-      <div class='step'  data-x=3000 data-y=0>
+      <div class='step' >
     
 <h1>Objects Database</h1>
 
@@ -128,7 +128,7 @@ zlib(header + conteudo)
 </code></pre>
 <p><code class='inline prettyprint'>.git/objects/2e/6f9b0d5885b6010f9167787445617f553a735f</code></p>
 </div>
-      <div class='step'  data-x=3000 data-y=0 data-z=-100000>
+      <div class='step'  data-rotate-x=90>
     
 <h1>Objects Database</h1>
 <pre><code class='prettyprint ruby'>def put_raw_object(content, type)
@@ -156,7 +156,7 @@ end
     <a href='https://github.com/mojombo/grit/blob/b49a6ff4ccd169eef6671263ccb29d3ead957697/lib/grit/git-ruby/internal/loose.rb#L89-L106'>Extraído do Grit</a>
 </div>
 </div>
-      <div class='step'  data-x=4000 data-y=0>
+      <div class='step' >
     
 <h1>Objects Database</h1>
 
@@ -181,7 +181,7 @@ end
     </tbody>
 </table>
 </div>
-      <div class='step'  data-x=5000 data-y=0>
+      <div class='step' >
     
 <h1>Objects Database</h1>
 
@@ -216,7 +216,7 @@ end
 
 <p><code class='inline prettyprint'>2e6f9b0d5885b6010f9167787445617f553a735f</code></p>
 </div>
-      <div class='step'  data-x=6000 data-y=0>
+      <div class='step' >
     
 <h1>Objects Database</h1>
 
@@ -261,7 +261,7 @@ end
 
 <p><code class='inline prettyprint'>ob772ec8eb9ae8952c3c1e56a9ffbe49385cc83a</code></p>
 </div>
-      <div class='step'  data-x=7000 data-y=0>
+      <div class='step' >
     
 <h1>Objects Database</h1>
 
@@ -313,7 +313,7 @@ end
 
 <p><code class='inline prettyprint'>7216b02627bc3d6ef57008f7ff67f0f8f13f488e</code></p>
 </div>
-      <div class='step'  data-x=8000 data-y=0>
+      <div class='step' >
     
 <h1>Objects Database</h1>
 
@@ -353,7 +353,7 @@ end
     </ul>
 </div>
 </div>
-      <div class='step'  data-x=9000 data-y=0>
+      <div class='step' >
     
 <h1>Objects Database</h1>
 
@@ -406,7 +406,7 @@ end
 
 <p><code class='inline prettyprint'>0bc9a42eb66d7ae36bf44af8ff5a3888e8a02d12</code></p>
 </div>
-      <div class='step'  data-x=10000 data-y=0>
+      <div class='step' >
     
 <h1>Instalação</h1>
 
@@ -414,7 +414,7 @@ end
 
 <p><a href="http://git-scm.com/downloads">http://git-scm.com/downloads</a></p>
 </div>
-      <div class='step'  data-x=0 data-y=1000>
+      <div class='step' >
     
 <h1>Configurando</h1>
 
@@ -437,7 +437,7 @@ $ git config --global user.email "celestino.gomes@abril.com.br"
 <pre><code class='prettyprint bash'>$ git config user.name   # Imprime "Celestino Gomes"
 $ git config --list      # Lista as chaves configuradas para o repo atual
 </code></pre></div>
-      <div class='step'  data-x=1000 data-y=1000>
+      <div class='step' >
     
 <h1>Obtendo ajuda</h1>
 <pre><code class='prettyprint bash'>$ git help
@@ -455,7 +455,7 @@ The most commonly used git commands are:
 
 See 'git help &lt;command&gt;' for more information on a specific command.
 </code></pre></div>
-      <div class='step'  data-x=2000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -471,7 +471,7 @@ $ git clone https://github.com/abril/git-course.git curso-de-git
 </code></pre></li>
 </ol>
 </div>
-      <div class='step'  data-x=3000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -481,7 +481,7 @@ $ git clone https://github.com/abril/git-course.git curso-de-git
 
 <p><img src="./images/18333fig0201-tn.png" alt="Ciclo de vida dos arquivos" title="File Status Lifecycle"></p>
 </div>
-      <div class='step'  data-x=4000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -499,7 +499,7 @@ $ git status
 #    README
 nothing added to commit but untracked files present (use "git add" to track)
 </code></pre></div>
-      <div class='step'  data-x=5000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -511,7 +511,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 <p><code class='inline prettyprint'>$ git add README</code></p>
 </div>
-      <div class='step'  data-x=6000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -527,7 +527,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 #   new file:   README
 #
 </code></pre></div>
-      <div class='step'  data-x=7000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -539,7 +539,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 <p><code class='inline prettyprint'>$ echo '*.log' >> .gitignore</code></p>
 </div>
-      <div class='step'  data-x=8000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -557,7 +557,7 @@ index 0cfbf08..bcaa3b0 100644
  2
 +conteudo
 </code></pre></div>
-      <div class='step'  data-x=9000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -576,7 +576,7 @@ index 0cfbf08..bcaa3b0 100644
 
 <p><code class='inline prettyprint'>git config --global core.editor vi</code></p>
 </div>
-      <div class='step'  data-x=10000 data-y=1000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -597,7 +597,7 @@ index 0cfbf08..bcaa3b0 100644
 $ git rm README
 $ git add LEIAME
 </code></pre></div>
-      <div class='step'  data-x=0 data-y=2000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -617,7 +617,7 @@ $ git add LEIAME
 
 <p><code class='inline prettyprint'>git show &lt;commit&gt;</code></p>
 </div>
-      <div class='step'  data-x=1000 data-y=2000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -635,7 +635,7 @@ $ git add LEIAME
 
 <p><code class='inline prettyprint'>$ git checkout -- arquivo</code></p>
 </div>
-      <div class='step'  data-x=2000 data-y=2000>
+      <div class='step' >
     
 <h1>O Básico</h1>
 
@@ -643,17 +643,15 @@ $ git add LEIAME
 <pre><code class='prettyprint bash'>$ git init # git clone &lt;repo&gt;
 $ git add .
 $ git commit -m 'Primeiro commit'
-</code></pre></div>
-      <div class='step'  data-x=2000 data-y=2000 data-rotate-x=90>
-    
-<h1>Dica</h1>
+</code></pre>
+<h2>Sugestão de atalhos</h2>
 <pre><code class='prettyprint '>git config --global alias.st 'status'
 git config --global alias.one 'log --oneline'
 git config --global alias.oneg 'log --oneline --graph'
 git config --global alias.ci 'commit'
 git config --global alias.cim 'commit -m'
 </code></pre></div>
-      <div class='step'  data-x=3000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -665,7 +663,7 @@ git config --global alias.cim 'commit -m'
 
 <p><img src="./images/18333fig0303-tn.png" alt="Branch apontando para o histórico de commits" title="Branch apontando para o histórico de commits"></p>
 </div>
-      <div class='step'  data-x=4000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -673,7 +671,7 @@ git config --global alias.cim 'commit -m'
 
 <p><img src="./images/18333fig0304-tn.png" alt="Múltiplos branches apontando para o histórico de commits" title="Múltiplos branches apontando para o histórico de commits"></p>
 </div>
-      <div class='step'  data-x=5000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -681,7 +679,7 @@ git config --global alias.cim 'commit -m'
 
 <p><img src="./images/18333fig0305-tn.png" alt="HEAD apontando para o branch em que você está" title="HEAD apontando para o branch em que você está"></p>
 </div>
-      <div class='step'  data-x=6000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -691,7 +689,7 @@ git config --global alias.cim 'commit -m'
 
 <p><img src="./images/18333fig0306-tn.png" alt="O HEAD aponta para outro branch quando você troca de branches" title="O HEAD aponta para outro branch quando você troca de branches"></p>
 </div>
-      <div class='step'  data-x=7000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -703,7 +701,7 @@ git config --global alias.cim 'commit -m'
 
 <p><img src="./images/18333fig0317-tn.png" alt="Git cria automaticamente um novo objeto commit que contém as modificações do merge" title="Git cria automaticamente um novo objeto commit que contém as modificações do merge"></p>
 </div>
-      <div class='step'  data-x=8000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -719,7 +717,7 @@ $ git add .
 $ git commit -m 'c4'
 $ git merge iss53
 </code></pre></div>
-      <div class='step'  data-x=9000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -739,7 +737,7 @@ $ git commit -m 'c4'
 $ git checkout experiment
 $ git rebase master
 </code></pre></div>
-      <div class='step'  data-x=10000 data-y=2000>
+      <div class='step' >
     
 <h1>Branches</h1>
 
@@ -752,7 +750,19 @@ $ git merge experiment
 <p><br/>
 <img src="./images/18333fig0330-tn.png" alt="Fazendo um fast-forward no branch master" title="Fazendo um fast-forward no branch master"></p>
 </div>
-      <div class='step'  data-x=11000 data-y=2000>
+      <div class='step'  data-rotate-x=90>
+    
+<h1>Branches</h1>
+
+<h2>Sugestão de atalhos</h2>
+<pre><code class='prettyprint '>git config --global alias.br 'branch'
+git config --global alias.co 'checkout'
+git config --global alias.rb 'rebase'
+git config --global alias.rbc 'rebase --continue'
+git config --global alias.rbs 'rebase --skip'
+git config --global alias.rba 'rebase --abort'
+</code></pre></div>
+      <div class='step' >
     
 <h1>Tags</h1>
 
@@ -764,7 +774,7 @@ $ git merge experiment
 
 <p><code class='inline prettyprint'>git tag &lt;tagname&gt; &lt;commit&gt;</code></p>
 </div>
-      <div class='step'  data-x=0 data-y=3000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -776,7 +786,7 @@ $ git remote -v
 origin ~/curso/repo-remoto (fetch)
 origin ~/curso/repo-remoto (push)
 </code></pre></div>
-      <div class='step'  data-x=0 data-y=3000 data-z=-100000>
+      <div class='step'  data-rotate-x=90>
     
 <h1>Branches Remotos</h1>
 
@@ -784,7 +794,7 @@ origin ~/curso/repo-remoto (push)
 " title="Um comando clone do Git dá a você seu próprio branch master e origin/master faz referência ao branch master original.
 "></p>
 </div>
-      <div class='step'  data-x=1000 data-y=3000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -798,7 +808,7 @@ $ mkdir joao ; cd joao
 $ git init
 $ git remote add celestino ~/meu-repo
 </code></pre></div>
-      <div class='step'  data-x=2000 data-y=3000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -808,13 +818,13 @@ $ git remote add celestino ~/meu-repo
 
 <p><code class='inline prettyprint'>git fetch &lt;repo&gt;</code></p>
 </div>
-      <div class='step'  data-x=2000 data-y=3000 data-z=-100000>
+      <div class='step'  data-rotate-x=90>
     
 <h1>Branches Remotos</h1>
 
 <p><img src="./images/18333fig0324-tn.png" alt="O comando git fetch atualiza suas referências remotas" title="O comando git fetch atualiza suas referências remotas"></p>
 </div>
-      <div class='step'  data-x=3000 data-y=3000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -828,7 +838,7 @@ $ git remote add celestino ~/meu-repo
 
 <p><code class='inline prettyprint'>git merge origin/master</code> ou <code class='inline prettyprint'>git rebase origin/master</code></p>
 </div>
-      <div class='step'  data-x=3000 data-y=3000 data-z=-100000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -844,7 +854,7 @@ $ git remote add celestino ~/meu-repo
 
 <p>:)</p>
 </div>
-      <div class='step'  data-x=4000 data-y=3000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -860,7 +870,7 @@ $ git branch
 master
 * fix
 </code></pre></div>
-      <div class='step'  data-x=5000 data-y=3000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -876,7 +886,7 @@ master
 
 <p>Quando se faz um clone, normalmente seu branch <code class='inline prettyprint'>master</code> local está seguindo o <code class='inline prettyprint'>origin/master</code></p>
 </div>
-      <div class='step'  data-x=6000 data-y=3000>
+      <div class='step' >
     
 <h1>Branches Remotos</h1>
 
@@ -886,7 +896,7 @@ master
 
 <p>Sim, é um <em>push</em>, porém o <code class='inline prettyprint'>branch-origem</code> é <strong>NADA</strong>, ele apaga o branch no repositório remoto.</p>
 </div>
-      <div class='step'  data-x=7000 data-y=3000>
+      <div class='step' >
     
 <h1>Tags Remotas</h1>
 
@@ -902,7 +912,7 @@ master
 
 <p><code class='inline prettyprint'>git push origin --tags</code></p>
 </div>
-      <div class='step'  data-x=0 data-y=4000>
+      <div class='step' >
     
 <h1>Fazendo Stash</h1>
 
@@ -914,7 +924,7 @@ master
 
 <p><code class='inline prettyprint'>git stash list</code></p>
 </div>
-      <div class='step'  data-x=1000 data-y=4000>
+      <div class='step' >
     
 <h1>Fazendo Stash</h1>
 
@@ -926,7 +936,7 @@ master
 
 <p><code class='inline prettyprint'>git stash apply --index</code></p>
 </div>
-      <div class='step'  data-x=2000 data-y=4000>
+      <div class='step' >
     
 <h1>Fazendo Stash</h1>
 
@@ -942,7 +952,7 @@ master
 
 <p><code class='inline prettyprint'>git stash branch &lt;nome-do-branch&gt;</code></p>
 </div>
-      <div class='step'  data-x=3000 data-y=4000>
+      <div class='step' >
     
 <h1>Ferramentas do Git</h1>
 
@@ -959,7 +969,7 @@ $ git blame -L 4,+5 README
 $ git blame -L '/conteudo/' README
 $ git blame v1.0.. -- README
 </code></pre></div>
-      <div class='step'  data-x=4000 data-y=4000>
+      <div class='step' >
     
 <h1>Ferramentas do Git</h1>
 
@@ -977,7 +987,7 @@ $ git checkout &lt;commit-ref&gt;
 </code></pre>
 <p>O_o</p>
 </div>
-      <div class='step'  data-x=5000 data-y=4000>
+      <div class='step' >
     
 <h1>Ferramentas do Git</h1>
 
@@ -999,7 +1009,7 @@ $ git bisect start HEAD v0.0.2-7
 Bisecting: 2 revisions left to test after this (roughly 2 steps)
 [6a178b5...] colocando link para obter mais comentarios
 </code></pre></div>
-      <div class='step'  data-x=6000 data-y=4000>
+      <div class='step' >
     
 <h1>Ferramentas do Git</h1>
 
@@ -1017,7 +1027,7 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 
 <p><code class='inline prettyprint'>git bisect run &lt;script&gt;</code></p>
 </div>
-      <div class='step'  data-x=0 data-y=5000>
+      <div class='step' >
     
 <h1>Resumão</h1>
 
@@ -1037,6 +1047,23 @@ git rebase &lt;branch&gt;
 <pre><code class='prettyprint bash'>git fetch [&lt;repo&gt;]
 git pull [&lt;repo&gt; [&lt;branch&gt;]] # == fetch + merge
 git push [&lt;repo&gt; [&lt;local_branch&gt;][[:]&lt;remove_branch&gt;]]
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Resumão</h1>
+
+<h2>Atalhos</h2>
+<pre><code class='prettyprint '>git config --global alias.st 'status'
+git config --global alias.one 'log --oneline'
+git config --global alias.oneg 'log --oneline --graph'
+git config --global alias.ci 'commit'
+git config --global alias.cim 'commit -m'
+git config --global alias.br 'branch'
+git config --global alias.co 'checkout'
+git config --global alias.rb 'rebase'
+git config --global alias.rbc 'rebase --continue'
+git config --global alias.rbs 'rebase --skip'
+git config --global alias.rba 'rebase --abort'
 </code></pre>
       </div>
     <script src="js/impress.js"></script>
