@@ -22,7 +22,7 @@
   <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
   </div>
     <div id="impress">
-    <div class='step'  id=intro data-z=-100000>
+    <div class='step'  id=intro data-rotate-x=90>
     
 <h1>Curso de Git</h1>
 
@@ -34,7 +34,7 @@
 
 <p><span style="color:#eee;">Navege com as setas</span></p>
 </div>
-      <div class='step'  data-x=1000 data-z=-100000>
+      <div class='step'  data-rotate-x=180 data-z=-5>
     
 <h1>Quem sou eu?</h1>
 
@@ -646,7 +646,7 @@ $ git commit -m 'Primeiro commit'
 </code></pre></div>
       <div class='step'  data-x=2000 data-y=2000 data-rotate-x=90>
     
-<h1>Dica</h1>
+<h1>Dicas de atalhos</h1>
 <pre><code class='prettyprint '>git config --global alias.st 'status'
 git config --global alias.one 'log --oneline'
 git config --global alias.oneg 'log --oneline --graph'
@@ -752,6 +752,16 @@ $ git merge experiment
 <p><br/>
 <img src="./images/18333fig0330-tn.png" alt="Fazendo um fast-forward no branch master" title="Fazendo um fast-forward no branch master"></p>
 </div>
+      <div class='step'  data-x=10000 data-y=2000 data-rotate-x=90>
+    
+<h1>Dicas de atalhos II</h1>
+<pre><code class='prettyprint '>git config --global alias.br 'branch'
+git config --global alias.co 'checkout'
+git config --global alias.rb 'rebase'
+git config --global alias.rbc 'rebase --continue'
+git config --global alias.rbs 'rebase --skip'
+git config --global alias.rba 'rebase --abort'
+</code></pre></div>
       <div class='step'  data-x=11000 data-y=2000>
     
 <h1>Tags</h1>
@@ -1037,6 +1047,23 @@ git rebase &lt;branch&gt;
 <pre><code class='prettyprint bash'>git fetch [&lt;repo&gt;]
 git pull [&lt;repo&gt; [&lt;branch&gt;]] # == fetch + merge
 git push [&lt;repo&gt; [&lt;local_branch&gt;][[:]&lt;remove_branch&gt;]]
+</code></pre></div>
+      <div class='step'  data-x=0 data-y=5000 data-rotate-x=90>
+    
+<h1>Resumão</h1>
+
+<h2>Atalhos</h2>
+<pre><code class='prettyprint '>git config --global alias.st 'status'
+git config --global alias.one 'log --oneline'
+git config --global alias.oneg 'log --oneline --graph'
+git config --global alias.ci 'commit'
+git config --global alias.cim 'commit -m'
+git config --global alias.br 'branch'
+git config --global alias.co 'checkout'
+git config --global alias.rb 'rebase'
+git config --global alias.rbc 'rebase --continue'
+git config --global alias.rbs 'rebase --skip'
+git config --global alias.rba 'rebase --abort'
 </code></pre>
       </div>
     <script src="js/impress.js"></script>

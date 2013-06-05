@@ -1,4 +1,4 @@
-= id=intro data-z=-100000
+= id=intro data-rotate-x=90
 
 # Curso de Git
 
@@ -11,7 +11,7 @@ Baseado em <http://git-scm.com/book/pt-br>
 <span style="color:#eee;">Navege com as setas</span>
 
 ---
-= data-x=1000 data-z=-100000
+= data-rotate-x=180 data-z=-5
 
 # Quem sou eu?
 
@@ -679,7 +679,7 @@ $ git commit -m 'Primeiro commit'
 ---
 = data-x=2000 data-y=2000 data-rotate-x=90
 
-# Dica
+# Dicas de atalhos
 
 ```
 git config --global alias.st 'status'
@@ -806,6 +806,20 @@ $ git merge experiment
 ```
 <br/>
 ![Fazendo um fast-forward no branch master](./images/18333fig0330-tn.png "Fazendo um fast-forward no branch master")
+
+---
+= data-x=10000 data-y=2000 data-rotate-x=90
+
+# Dicas de atalhos II
+
+```
+git config --global alias.br 'branch'
+git config --global alias.co 'checkout'
+git config --global alias.rb 'rebase'
+git config --global alias.rbc 'rebase --continue'
+git config --global alias.rbs 'rebase --skip'
+git config --global alias.rba 'rebase --abort'
+```
 
 ---
 = data-x=11000 data-y=2000
@@ -1140,4 +1154,25 @@ git rebase &lt;branch&gt;
 git fetch [&lt;repo&gt;]
 git pull [&lt;repo&gt; [&lt;branch&gt;]] # == fetch + merge
 git push [&lt;repo&gt; [&lt;local_branch&gt;][[:]&lt;remove_branch&gt;]]
+```
+
+---
+= data-x=0 data-y=5000 data-rotate-x=90
+
+# Resumão
+
+## Atalhos
+
+```
+git config --global alias.st 'status'
+git config --global alias.one 'log --oneline'
+git config --global alias.oneg 'log --oneline --graph'
+git config --global alias.ci 'commit'
+git config --global alias.cim 'commit -m'
+git config --global alias.br 'branch'
+git config --global alias.co 'checkout'
+git config --global alias.rb 'rebase'
+git config --global alias.rbc 'rebase --continue'
+git config --global alias.rbs 'rebase --skip'
+git config --global alias.rba 'rebase --abort'
 ```
