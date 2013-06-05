@@ -1,4 +1,4 @@
-= id=intro data-rotate-x=90
+= id=intro
 
 # Curso de Git
 
@@ -11,7 +11,6 @@ Baseado em <http://git-scm.com/book/pt-br>
 <span style="color:#eee;">Navege com as setas</span>
 
 ---
-= data-rotate-x=180 data-z=-5
 
 # Quem sou eu?
 
@@ -22,7 +21,6 @@ Celestino Ferreira Gomes
 * <http://blog.tinogomes.com>
 
 ---
-= data-x=0 data-y=0
 
 # O que é?
 
@@ -35,7 +33,6 @@ Celestino Ferreira Gomes
 * Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)
 
 ---
-= data-x=1000 data-y=0
 
 # Características Básicas
 
@@ -47,7 +44,6 @@ Celestino Ferreira Gomes
 <li style='color: #eee'>Não é o subversion</li>
 
 ---
-= data-x=2000 data-y=0
 
 # Estrutura de Controle
 
@@ -59,7 +55,7 @@ Celestino Ferreira Gomes
 * References `.git/refs`
 
 ---
-= data-x=2000 data-y=0 data-z=-100000
+= data-rotate-x=90
 
 # Estrutura de Controle
 
@@ -89,7 +85,6 @@ Celestino Ferreira Gomes
 ```
 
 ---
-= data-x=3000 data-y=0
 
 # Objects Database
 
@@ -108,7 +103,7 @@ zlib(header + conteudo)
 `.git/objects/2e/6f9b0d5885b6010f9167787445617f553a735f`
 
 ---
-= data-x=3000 data-y=0 data-z=-100000
+= data-rotate-x=90
 
 # Objects Database
 
@@ -141,7 +136,6 @@ end
 
 
 ---
-= data-x=4000 data-y=0
 
 # Objects Database
 
@@ -165,7 +159,6 @@ end
 </table>
 
 ---
-= data-x=5000 data-y=0
 
 # Objects Database
 
@@ -201,7 +194,6 @@ end
 `2e6f9b0d5885b6010f9167787445617f553a735f`
 
 ---
-= data-x=6000 data-y=0
 
 # Objects Database
 
@@ -247,7 +239,6 @@ end
 `ob772ec8eb9ae8952c3c1e56a9ffbe49385cc83a`
 
 ---
-= data-x=7000 data-y=0
 
 # Objects Database
 
@@ -300,7 +291,6 @@ end
 `7216b02627bc3d6ef57008f7ff67f0f8f13f488e`
 
 ---
-= data-x=8000 data-y=0
 
 # Objects Database
 
@@ -341,7 +331,6 @@ end
 </div>
 
 ---
-= data-x=9000 data-y=0
 
 # Objects Database
 
@@ -395,7 +384,6 @@ end
 `0bc9a42eb66d7ae36bf44af8ff5a3888e8a02d12`
 
 ---
-= data-x=10000 data-y=0
 
 # Instalação
 
@@ -404,7 +392,6 @@ Acessar o site oficial do Git e fazer o download de acordo com seu sistema opera
 <http://git-scm.com/downloads>
 
 ---
-= data-x=0 data-y=1000
 
 # Configurando
 
@@ -437,7 +424,6 @@ $ git config --list      # Lista as chaves configuradas para o repo atual
 ```
 
 ---
-= data-x=1000 data-y=1000
 
 # Obtendo ajuda
 
@@ -459,7 +445,6 @@ See 'git help &lt;command&gt;' for more information on a specific command.
 ```
 
 ---
-= data-x=2000 data-y=1000
 
 # O Básico
 
@@ -480,7 +465,6 @@ See 'git help &lt;command&gt;' for more information on a specific command.
     ```
 
 ---
-= data-x=3000 data-y=1000
 
 # O Básico
 
@@ -492,7 +476,6 @@ Abaixo uma imagem que explica o ciclo de vida dos arquivos em um repositório *g
 
 
 ---
-= data-x=4000 data-y=1000
 
 # O Básico
 
@@ -514,7 +497,6 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 ---
-= data-x=5000 data-y=1000
 
 # O Básico
 
@@ -527,7 +509,6 @@ Exemplo:
 `$ git add README`
 
 ---
-= data-x=6000 data-y=1000
 
 # O Básico
 
@@ -547,7 +528,6 @@ $ git status
 ```
 
 ---
-= data-x=7000 data-y=1000
 
 # O Básico
 
@@ -560,7 +540,6 @@ $ git status
 `$ echo '*.log' >> .gitignore`
 
 ---
-= data-x=8000 data-y=1000
 
 # O Básico
 
@@ -582,7 +561,6 @@ index 0cfbf08..bcaa3b0 100644
 ```
 
 ---
-= data-x=9000 data-y=1000
 
 # O Básico
 
@@ -601,7 +579,6 @@ Se não passar `-m` com uma mensagem, o `git commit` vai abrir o editor padrão 
 
 
 ---
-= data-x=10000 data-y=1000
 
 # O Básico
 
@@ -626,7 +603,6 @@ $ git add LEIAME
 ```
 
 ---
-= data-x=0 data-y=2000
 
 # O Básico
 
@@ -645,7 +621,6 @@ $ git add LEIAME
 `git show &lt;commit&gt;`
 
 ---
-= data-x=1000 data-y=2000
 
 # O Básico
 
@@ -664,7 +639,6 @@ $ git add LEIAME
 `$ git checkout -- arquivo`
 
 ---
-= data-x=2000 data-y=2000
 
 # O Básico
 
@@ -676,10 +650,7 @@ $ git add .
 $ git commit -m 'Primeiro commit'
 ```
 
----
-= data-x=2000 data-y=2000 data-rotate-x=90
-
-# Dicas de atalhos
+## Sugestão de atalhos
 
 ```
 git config --global alias.st 'status'
@@ -690,7 +661,6 @@ git config --global alias.cim 'commit -m'
 ```
 
 ---
-= data-x=3000 data-y=2000
 
 #  Branches
 
@@ -706,7 +676,6 @@ O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo
 ![Branch apontando para o histórico de commits](./images/18333fig0303-tn.png "Branch apontando para o histórico de commits")
 
 ---
-= data-x=4000 data-y=2000
 
 # Branches
 
@@ -715,7 +684,6 @@ O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo
 ![Múltiplos branches apontando para o histórico de commits](./images/18333fig0304-tn.png "Múltiplos branches apontando para o histórico de commits")
 
 ---
-= data-x=5000 data-y=2000
 
 # Branches
 
@@ -724,7 +692,6 @@ Como o git sabe o branch em que você está atualmente? Ele tem um ponteiro espe
 ![HEAD apontando para o branch em que você está](./images/18333fig0305-tn.png "HEAD apontando para o branch em que você está")
 
 ---
-= data-x=6000 data-y=2000
 
 # Branches
 
@@ -735,7 +702,6 @@ Para mudar de branch, use `git checkout &lt;branch-name&gt;`
 ![O HEAD aponta para outro branch quando você troca de branches](./images/18333fig0306-tn.png "O HEAD aponta para outro branch quando você troca de branches")
 
 ---
-= data-x=7000 data-y=2000
 
 # Branches
 
@@ -748,7 +714,6 @@ Como juntar as coisas? Existem duas estratégia, sendo elas **merge** ou **rebas
 ![Git cria automaticamente um novo objeto commit que contém as modificações do merge](./images/18333fig0317-tn.png "Git cria automaticamente um novo objeto commit que contém as modificações do merge")
 
 ---
-= data-x=8000 data-y=2000
 
 # Branches
 
@@ -768,7 +733,6 @@ $ git merge iss53
 ```
 
 ---
-= data-x=9000 data-y=2000
 
 # Branches
 
@@ -792,7 +756,6 @@ $ git rebase master
 ```
 
 ---
-= data-x=10000 data-y=2000
 
 # Branches
 
@@ -808,9 +771,11 @@ $ git merge experiment
 ![Fazendo um fast-forward no branch master](./images/18333fig0330-tn.png "Fazendo um fast-forward no branch master")
 
 ---
-= data-x=10000 data-y=2000 data-rotate-x=90
+= data-rotate-x=90
 
-# Dicas de atalhos II
+# Branches
+
+## Sugestão de atalhos
 
 ```
 git config --global alias.br 'branch'
@@ -822,7 +787,6 @@ git config --global alias.rba 'rebase --abort'
 ```
 
 ---
-= data-x=11000 data-y=2000
 
 # Tags
 
@@ -835,7 +799,6 @@ Para criar uma nova tag
 `git tag &lt;tagname&gt; &lt;commit&gt;`
 
 ---
-= data-x=0 data-y=3000
 
 # Branches Remotos
 
@@ -851,7 +814,7 @@ origin ~/curso/repo-remoto (push)
 ```
 
 ---
-= data-x=0 data-y=3000 data-z=-100000
+= data-rotate-x=90
 
 # Branches Remotos
 
@@ -860,7 +823,6 @@ origin ~/curso/repo-remoto (push)
 ")
 
 ---
-= data-x=1000 data-y=3000
 
 # Branches Remotos
 
@@ -878,7 +840,6 @@ $ git remote add celestino ~/meu-repo
 ```
 
 ---
-= data-x=2000 data-y=3000
 
 # Branches Remotos
 
@@ -889,14 +850,13 @@ Antes de integrar com um branch remoto, é **muito** importante atualizar as ref
 `git fetch &lt;repo&gt;`
 
 ---
-= data-x=2000 data-y=3000 data-z=-100000
+= data-rotate-x=90
 
 # Branches Remotos
 
 ![O comando git fetch atualiza suas referências remotas](./images/18333fig0324-tn.png "O comando git fetch atualiza suas referências remotas")
 
 ---
-= data-x=3000 data-y=3000
 
 # Branches Remotos
 
@@ -912,7 +872,6 @@ Ah, então, seu eu quero atualizar meu master com o remoto...
 
 
 ---
-= data-x=3000 data-y=3000 data-z=-100000
 
 # Branches Remotos
 
@@ -929,7 +888,6 @@ Tá, mas eu prefiro fazer rebase.
 :)
 
 --- 
-= data-x=4000 data-y=3000
 
 # Branches Remotos
 
@@ -949,7 +907,6 @@ master
 ```
 
 ---
-= data-x=5000 data-y=3000
 
 # Branches Remotos
 
@@ -966,7 +923,6 @@ Se seu branch está "seguindo (tracking)" um branch remoto...
 Quando se faz um clone, normalmente seu branch `master` local está seguindo o `origin/master`
 
 ---
-= data-x=6000 data-y=3000
 
 # Branches Remotos
 
@@ -977,7 +933,6 @@ Quando se faz um clone, normalmente seu branch `master` local está seguindo o `
 Sim, é um *push*, porém o `branch-origem` é **NADA**, ele apaga o branch no repositório remoto.
 
 ---
-= data-x=7000 data-y=3000
 
 # Tags Remotas
 
@@ -995,7 +950,6 @@ Para enviar todas as tags locais
 
 
 ---
-= data-x=0 data-y=4000
 
 # Fazendo Stash
 
@@ -1008,7 +962,6 @@ Listar os *stashes* disponíveis:
 `git stash list`
 
 ---
-= data-x=1000 data-y=4000
 
 # Fazendo Stash
 
@@ -1021,7 +974,6 @@ Pode ser que, no momento de voltar seu trabalho do stash, o arquivo original nã
 `git stash apply --index`
 
 ---
-= data-x=2000 data-y=4000
 
 # Fazendo Stash
 
@@ -1038,7 +990,6 @@ Criar um branch do stash
 `git stash branch &lt;nome-do-branch&gt;`
 
 ---
-= data-x=3000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1059,7 +1010,6 @@ $ git blame v1.0.. -- README
 ```
 
 ---
-= data-x=4000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1081,7 +1031,6 @@ $ git checkout &lt;commit-ref&gt;
 O_o
 
 ---
-= data-x=5000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1107,7 +1056,6 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 ```
 
 ---
-= data-x=6000 data-y=4000
 
 # Ferramentas do Git
 
@@ -1126,7 +1074,6 @@ Automático
 `git bisect run &lt;script&gt;`
 
 ---
-= data-x=0 data-y=5000
 
 # Resumão
 
@@ -1157,7 +1104,6 @@ git push [&lt;repo&gt; [&lt;local_branch&gt;][[:]&lt;remove_branch&gt;]]
 ```
 
 ---
-= data-x=0 data-y=5000 data-rotate-x=90
 
 # Resumão
 

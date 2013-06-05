@@ -337,3 +337,33 @@ li {
 .note {
 	font-size: 0.5em;
 }
+
+.step.past {
+	
+}
+
+.step.present {
+	
+}
+
+.step.future {
+	
+}
+
+.impress-enabled .step {
+	margin: 0;
+	opacity: 0.3;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+.step:not(.active) {
+	opacity: 0.0;
+}
+
+.impress-enabled .step.active {
+	opacity: 1
+}
