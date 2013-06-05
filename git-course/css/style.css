@@ -138,57 +138,41 @@ body     { pointer-events: none; }
 /* COMMON STEP STYLES */
 
 .step {
-	width: 900px;
-	padding: 40px;
-
+	background-color: white;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, .3);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	-ms-box-sizing:     border-box;
 	-o-box-sizing:      border-box;
 	box-sizing:         border-box;
-
-	font-family: 'PT Serif', georgia, serif;
-
-/*	font-size: 48px;*/
-}
-
-/* fade out inactive slides */
-
-.step {
+	color: rgb(102, 102, 102);
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	height: 700px;
+	letter-spacing: -1px;
+	padding: 40px 60px;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
 	-webkit-transition: opacity 1s;
 	-moz-transition:    opacity 1s;
 	-ms-transition:     opacity 1s;
 	-o-transition:      opacity 1s;
 	transition:         opacity 1s;
+	width: 900px;
 }
+
 
 .step:not(.active) {
-	opacity: 0.3;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s linear 0.5s,opacity 0.5s linear;
 }
 
-/* STEP SPECIFIC STYLES */
-
-.step {
-	display: block;
-
-	width: 900px;
-	height: 700px;
-
-	padding: 40px 60px;
-
-	border-radius: 10px;
-
-	background-color: white;
-
-	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-	border: 1px solid rgba(0, 0, 0, .3);
-
-	font-family: 'Open Sans', sans-serif;
-
-	color: rgb(102, 102, 102);
-	text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
-
-	letter-spacing: -1px;
+.impress-enabled .step.active {
+	visibility: visible;
+	opacity: 1;
+	transition-delay: 0s;
 }
 
 code {
@@ -336,34 +320,4 @@ li {
 
 .note {
 	font-size: 0.5em;
-}
-
-.step.past {
-	
-}
-
-.step.present {
-	
-}
-
-.step.future {
-	
-}
-
-.impress-enabled .step {
-	margin: 0;
-	opacity: 0.3;
-	-webkit-transition: opacity 1s;
-	-moz-transition: opacity 1s;
-	-ms-transition: opacity 1s;
-	-o-transition: opacity 1s;
-	transition: opacity 1s;
-}
-
-.step:not(.active) {
-	opacity: 0.0;
-}
-
-.impress-enabled .step.active {
-	opacity: 1
 }

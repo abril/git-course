@@ -1,4 +1,4 @@
-= id=intro
+= id="intro"
 
 # Curso de Git
 
@@ -11,6 +11,7 @@ Baseado em <http://git-scm.com/book/pt-br>
 <span style="color:#eee;">Navege com as setas</span>
 
 ---
+= id="step1"
 
 # Quem sou eu?
 
@@ -21,6 +22,7 @@ Celestino Ferreira Gomes
 * <http://blog.tinogomes.com>
 
 ---
+= id="step2"
 
 # O que é?
 
@@ -33,6 +35,7 @@ Celestino Ferreira Gomes
 * Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)
 
 ---
+= id="step3"
 
 # Características Básicas
 
@@ -44,6 +47,7 @@ Celestino Ferreira Gomes
 <li style='color: #eee'>Não é o subversion</li>
 
 ---
+= id="step4"
 
 # Estrutura de Controle
 
@@ -55,7 +59,7 @@ Celestino Ferreira Gomes
 * References `.git/refs`
 
 ---
-= data-rotate-x=90
+= id="step5" data-rotate-x=90
 
 # Estrutura de Controle
 
@@ -85,6 +89,7 @@ Celestino Ferreira Gomes
 ```
 
 ---
+= id="step6"
 
 # Objects Database
 
@@ -103,7 +108,7 @@ zlib(header + conteudo)
 `.git/objects/2e/6f9b0d5885b6010f9167787445617f553a735f`
 
 ---
-= data-rotate-x=90
+= id="step7" data-rotate-x=90
 
 # Objects Database
 
@@ -136,6 +141,7 @@ end
 
 
 ---
+= id="step8"
 
 # Objects Database
 
@@ -159,6 +165,7 @@ end
 </table>
 
 ---
+= id="step9"
 
 # Objects Database
 
@@ -194,6 +201,7 @@ end
 `2e6f9b0d5885b6010f9167787445617f553a735f`
 
 ---
+= id="step10"
 
 # Objects Database
 
@@ -239,6 +247,7 @@ end
 `ob772ec8eb9ae8952c3c1e56a9ffbe49385cc83a`
 
 ---
+= id="step11"
 
 # Objects Database
 
@@ -291,6 +300,7 @@ end
 `7216b02627bc3d6ef57008f7ff67f0f8f13f488e`
 
 ---
+= id="step12"
 
 # Objects Database
 
@@ -331,6 +341,7 @@ end
 </div>
 
 ---
+= id="step13"
 
 # Objects Database
 
@@ -384,6 +395,7 @@ end
 `0bc9a42eb66d7ae36bf44af8ff5a3888e8a02d12`
 
 ---
+= id="step14"
 
 # Instalação
 
@@ -392,6 +404,7 @@ Acessar o site oficial do Git e fazer o download de acordo com seu sistema opera
 <http://git-scm.com/downloads>
 
 ---
+= id="step15"
 
 # Configurando
 
@@ -424,6 +437,7 @@ $ git config --list      # Lista as chaves configuradas para o repo atual
 ```
 
 ---
+= id="step16"
 
 # Obtendo ajuda
 
@@ -445,6 +459,7 @@ See 'git help &lt;command&gt;' for more information on a specific command.
 ```
 
 ---
+= id="step17"
 
 # O Básico
 
@@ -465,6 +480,7 @@ See 'git help &lt;command&gt;' for more information on a specific command.
     ```
 
 ---
+= id="step18"
 
 # O Básico
 
@@ -476,6 +492,7 @@ Abaixo uma imagem que explica o ciclo de vida dos arquivos em um repositório *g
 
 
 ---
+= id="step19"
 
 # O Básico
 
@@ -497,6 +514,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 ---
+= id="step20"
 
 # O Básico
 
@@ -509,6 +527,7 @@ Exemplo:
 `$ git add README`
 
 ---
+= id="step21"
 
 # O Básico
 
@@ -528,6 +547,7 @@ $ git status
 ```
 
 ---
+= id="step22"
 
 # O Básico
 
@@ -540,6 +560,7 @@ $ git status
 `$ echo '*.log' >> .gitignore`
 
 ---
+= id="step23"
 
 # O Básico
 
@@ -561,6 +582,7 @@ index 0cfbf08..bcaa3b0 100644
 ```
 
 ---
+= id="step24"
 
 # O Básico
 
@@ -579,6 +601,7 @@ Se não passar `-m` com uma mensagem, o `git commit` vai abrir o editor padrão 
 
 
 ---
+= id="step25"
 
 # O Básico
 
@@ -603,6 +626,7 @@ $ git add LEIAME
 ```
 
 ---
+= id="step26"
 
 # O Básico
 
@@ -621,6 +645,7 @@ $ git add LEIAME
 `git show &lt;commit&gt;`
 
 ---
+= id="step27"
 
 # O Básico
 
@@ -639,6 +664,7 @@ $ git add LEIAME
 `$ git checkout -- arquivo`
 
 ---
+= id="step28"
 
 # O Básico
 
@@ -661,6 +687,7 @@ git config --global alias.cim 'commit -m'
 ```
 
 ---
+= id="step29"
 
 #  Branches
 
@@ -676,6 +703,7 @@ O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo
 ![Branch apontando para o histórico de commits](./images/18333fig0303-tn.png "Branch apontando para o histórico de commits")
 
 ---
+= id="step30"
 
 # Branches
 
@@ -684,6 +712,7 @@ O branch é nada mais que uma referência (ponteiro) móvel para um commit. Logo
 ![Múltiplos branches apontando para o histórico de commits](./images/18333fig0304-tn.png "Múltiplos branches apontando para o histórico de commits")
 
 ---
+= id="step31"
 
 # Branches
 
@@ -692,6 +721,7 @@ Como o git sabe o branch em que você está atualmente? Ele tem um ponteiro espe
 ![HEAD apontando para o branch em que você está](./images/18333fig0305-tn.png "HEAD apontando para o branch em que você está")
 
 ---
+= id="step32"
 
 # Branches
 
@@ -702,6 +732,7 @@ Para mudar de branch, use `git checkout &lt;branch-name&gt;`
 ![O HEAD aponta para outro branch quando você troca de branches](./images/18333fig0306-tn.png "O HEAD aponta para outro branch quando você troca de branches")
 
 ---
+= id="step33"
 
 # Branches
 
@@ -714,6 +745,7 @@ Como juntar as coisas? Existem duas estratégia, sendo elas **merge** ou **rebas
 ![Git cria automaticamente um novo objeto commit que contém as modificações do merge](./images/18333fig0317-tn.png "Git cria automaticamente um novo objeto commit que contém as modificações do merge")
 
 ---
+= id="step34"
 
 # Branches
 
@@ -733,6 +765,7 @@ $ git merge iss53
 ```
 
 ---
+= id="step35"
 
 # Branches
 
@@ -756,6 +789,7 @@ $ git rebase master
 ```
 
 ---
+= id="step36"
 
 # Branches
 
@@ -771,7 +805,7 @@ $ git merge experiment
 ![Fazendo um fast-forward no branch master](./images/18333fig0330-tn.png "Fazendo um fast-forward no branch master")
 
 ---
-= data-rotate-x=90
+= id="step37" data-rotate-x=90
 
 # Branches
 
@@ -787,6 +821,7 @@ git config --global alias.rba 'rebase --abort'
 ```
 
 ---
+= id="step38"
 
 # Tags
 
@@ -799,6 +834,7 @@ Para criar uma nova tag
 `git tag &lt;tagname&gt; &lt;commit&gt;`
 
 ---
+= id="step39"
 
 # Branches Remotos
 
@@ -814,7 +850,7 @@ origin ~/curso/repo-remoto (push)
 ```
 
 ---
-= data-rotate-x=90
+= id="step40" data-rotate-x=90
 
 # Branches Remotos
 
@@ -823,6 +859,7 @@ origin ~/curso/repo-remoto (push)
 ")
 
 ---
+= id="step41"
 
 # Branches Remotos
 
@@ -840,6 +877,7 @@ $ git remote add celestino ~/meu-repo
 ```
 
 ---
+= id="step42"
 
 # Branches Remotos
 
@@ -850,13 +888,14 @@ Antes de integrar com um branch remoto, é **muito** importante atualizar as ref
 `git fetch &lt;repo&gt;`
 
 ---
-= data-rotate-x=90
+= id="step43" data-rotate-x=90
 
 # Branches Remotos
 
 ![O comando git fetch atualiza suas referências remotas](./images/18333fig0324-tn.png "O comando git fetch atualiza suas referências remotas")
 
 ---
+= id="step44"
 
 # Branches Remotos
 
@@ -872,6 +911,7 @@ Ah, então, seu eu quero atualizar meu master com o remoto...
 
 
 ---
+= id="step45"
 
 # Branches Remotos
 
@@ -888,6 +928,7 @@ Tá, mas eu prefiro fazer rebase.
 :)
 
 --- 
+= id="step46"
 
 # Branches Remotos
 
@@ -907,6 +948,7 @@ master
 ```
 
 ---
+= id="step47"
 
 # Branches Remotos
 
@@ -923,6 +965,7 @@ Se seu branch está "seguindo (tracking)" um branch remoto...
 Quando se faz um clone, normalmente seu branch `master` local está seguindo o `origin/master`
 
 ---
+= id="step48"
 
 # Branches Remotos
 
@@ -933,6 +976,7 @@ Quando se faz um clone, normalmente seu branch `master` local está seguindo o `
 Sim, é um *push*, porém o `branch-origem` é **NADA**, ele apaga o branch no repositório remoto.
 
 ---
+= id="step49"
 
 # Tags Remotas
 
@@ -950,6 +994,7 @@ Para enviar todas as tags locais
 
 
 ---
+= id="step50"
 
 # Fazendo Stash
 
@@ -962,6 +1007,7 @@ Listar os *stashes* disponíveis:
 `git stash list`
 
 ---
+= id="step51"
 
 # Fazendo Stash
 
@@ -974,6 +1020,7 @@ Pode ser que, no momento de voltar seu trabalho do stash, o arquivo original nã
 `git stash apply --index`
 
 ---
+= id="step52"
 
 # Fazendo Stash
 
@@ -990,6 +1037,7 @@ Criar um branch do stash
 `git stash branch &lt;nome-do-branch&gt;`
 
 ---
+= id="step53"
 
 # Ferramentas do Git
 
@@ -1010,6 +1058,7 @@ $ git blame v1.0.. -- README
 ```
 
 ---
+= id="step54"
 
 # Ferramentas do Git
 
@@ -1031,6 +1080,7 @@ $ git checkout &lt;commit-ref&gt;
 O_o
 
 ---
+= id="step55"
 
 # Ferramentas do Git
 
@@ -1056,6 +1106,7 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 ```
 
 ---
+= id="step56"
 
 # Ferramentas do Git
 
@@ -1074,6 +1125,7 @@ Automático
 `git bisect run &lt;script&gt;`
 
 ---
+= id="step57"
 
 # Resumão
 
@@ -1104,6 +1156,7 @@ git push [&lt;repo&gt; [&lt;local_branch&gt;][[:]&lt;remove_branch&gt;]]
 ```
 
 ---
+= id="step58"
 
 # Resumão
 
