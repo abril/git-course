@@ -53,7 +53,6 @@ Celestino Ferreira Gomes
 
 * Diretório `.git` na raíz de cada projeto
 * Arquivos de configuração `.git/config`
-* Index `.git/index`
 * Hooks `.git/hooks`
 * Object Database `.git/objects`
 * References `.git/refs`
@@ -93,7 +92,7 @@ Celestino Ferreira Gomes
 
 # Objects Database
 
-Todos os objetos se registram da mesma forma
+Todos os objetos se registram da mesma forma.
 
 ```
 conteudo
@@ -410,6 +409,28 @@ Acessar o site oficial do Git e fazer o download de acordo com seu sistema opera
 
 Sintaxe:
 
+# Obtendo ajuda
+
+```bash
+$ git help
+
+usage: git &lt;command&gt; [&lt;args&gt;]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   ...
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+See 'git help &lt;command&gt;' for more information on a specific command.
+```
+
+---
+= id="step16"
+
 `$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]`
 
 1. Sistema `--system`: `/etc/gitconfig`
@@ -434,28 +455,6 @@ Sintaxe:
 ```bash
 $ git config user.name   # Imprime "Celestino Gomes"
 $ git config --list      # Lista as chaves configuradas para o repo atual
-```
-
----
-= id="step16"
-
-# Obtendo ajuda
-
-```bash
-$ git help
-
-usage: git &lt;command&gt; [&lt;args&gt;]
-
-The most commonly used git commands are:
-   add        Add file contents to the index
-   bisect     Find by binary search the change that introduced a bug
-   branch     List, create, or delete branches
-   checkout   Checkout a branch or paths to the working tree
-   clone      Clone a repository into a new directory
-   ...
-   tag        Create, list, delete or verify a tag object signed with GPG
-
-See 'git help &lt;command&gt;' for more information on a specific command.
 ```
 
 ---
@@ -923,7 +922,7 @@ A atualização do seu branch com o remoto pode ser mais fácil. `git pull &lt;r
 
 Tá, mas eu prefiro fazer rebase.
 
-`git pull --rebase` = `git fetch origin; git merge origin/master`
+`git pull --rebase` = `git fetch origin; git rebase origin/master`
 
 :)
 
@@ -1026,11 +1025,11 @@ Pode ser que, no momento de voltar seu trabalho do stash, o arquivo original nã
 
 Você pode remover um stash
 
-`git stash drop [&lt;stage-index&gt;]`
+`git stash drop [&lt;stash-index&gt;]`
 
 Você pode aplicar o último stash e removê-lo ao mesmo tempo.
 
-`git stash pop`
+`git stash pop [&lt;stash-index&gt;]`
 
 Criar um branch do stash
 
