@@ -405,10 +405,6 @@ Acessar o site oficial do Git e fazer o download de acordo com seu sistema opera
 ---
 = id="step15"
 
-# Configurando
-
-Sintaxe:
-
 # Obtendo ajuda
 
 ```bash
@@ -430,6 +426,10 @@ See 'git help &lt;command&gt;' for more information on a specific command.
 
 ---
 = id="step16"
+
+# Configurando
+
+Sintaxe:
 
 `$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]`
 
@@ -1023,11 +1023,11 @@ Pode ser que, no momento de voltar seu trabalho do stash, o arquivo original nã
 
 # Fazendo Stash
 
-Você pode remover um stash
+Você pode remover um stash sem aplicar.
 
 `git stash drop [&lt;stash-index&gt;]`
 
-Você pode aplicar o último stash e removê-lo ao mesmo tempo.
+Você pode aplicar e remover um stash ao mesmo tempo.
 
 `git stash pop [&lt;stash-index&gt;]`
 
@@ -1052,7 +1052,7 @@ Exemplo:
 $ git blame README
 $ git blame -L 4,8 README
 $ git blame -L 4,+5 README
-$ git blame -L '/conteudo/' README
+$ git blame -L '/conteudo/',+5 README
 $ git blame v1.0.. -- README
 ```
 
