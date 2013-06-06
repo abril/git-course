@@ -147,7 +147,7 @@ end
 
 * blob - É o menor objeto git e representa um arquivo.
 * tree - É um container de *trees* e *blobs*
-* commit - É um "snaphot" do estado atual de uma *tree*
+* commit - É um "snapshot" do estado atual de uma *tree*
 * tag - aponta para um *commit*
 
 <table class='objeto'>
