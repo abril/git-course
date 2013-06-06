@@ -80,7 +80,6 @@
 <ul>
 <li>Diretório <code class='inline prettyprint'>.git</code> na raíz de cada projeto</li>
 <li>Arquivos de configuração <code class='inline prettyprint'>.git/config</code></li>
-<li>Index <code class='inline prettyprint'>.git/index</code></li>
 <li>Hooks <code class='inline prettyprint'>.git/hooks</code></li>
 <li>Object Database <code class='inline prettyprint'>.git/objects</code></li>
 <li>References <code class='inline prettyprint'>.git/refs</code></li>
@@ -116,7 +115,7 @@
     
 <h1>Objects Database</h1>
 
-<p>Todos os objetos se registram da mesma forma</p>
+<p>Todos os objetos se registram da mesma forma.</p>
 <pre><code class='prettyprint '>conteudo
 
 header + conteudo
@@ -163,7 +162,7 @@ end
 <ul>
 <li>blob - É o menor objeto git e representa um arquivo.</li>
 <li>tree - É um container de <em>trees</em> e <em>blobs</em></li>
-<li>commit - É um &quot;snaphot&quot; do estado atual de uma <em>tree</em></li>
+<li>commit - É um &quot;snapshot&quot; do estado atual de uma <em>tree</em></li>
 <li>tag - aponta para um <em>commit</em></li>
 </ul>
 
@@ -420,6 +419,24 @@ end
 
 <p>Sintaxe:</p>
 
+<h1>Obtendo ajuda</h1>
+<pre><code class='prettyprint bash'>$ git help
+
+usage: git &lt;command&gt; [&lt;args&gt;]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   ...
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+See 'git help &lt;command&gt;' for more information on a specific command.
+</code></pre></div>
+      <div class='step'  id="step16">
+    
 <p><code class='inline prettyprint'>$ git config [&lt;options&gt;] [&lt;key&gt; &lt;value&gt;]</code></p>
 
 <ol>
@@ -436,24 +453,6 @@ $ git config --global user.email "celestino.gomes@abril.com.br"
 </ol>
 <pre><code class='prettyprint bash'>$ git config user.name   # Imprime "Celestino Gomes"
 $ git config --list      # Lista as chaves configuradas para o repo atual
-</code></pre></div>
-      <div class='step'  id="step16">
-    
-<h1>Obtendo ajuda</h1>
-<pre><code class='prettyprint bash'>$ git help
-
-usage: git &lt;command&gt; [&lt;args&gt;]
-
-The most commonly used git commands are:
-   add        Add file contents to the index
-   bisect     Find by binary search the change that introduced a bug
-   branch     List, create, or delete branches
-   checkout   Checkout a branch or paths to the working tree
-   clone      Clone a repository into a new directory
-   ...
-   tag        Create, list, delete or verify a tag object signed with GPG
-
-See 'git help &lt;command&gt;' for more information on a specific command.
 </code></pre></div>
       <div class='step'  id="step17">
     
@@ -850,7 +849,7 @@ $ git remote add celestino ~/meu-repo
 
 <p>Tá, mas eu prefiro fazer rebase.</p>
 
-<p><code class='inline prettyprint'>git pull --rebase</code> = <code class='inline prettyprint'>git fetch origin; git merge origin/master</code></p>
+<p><code class='inline prettyprint'>git pull --rebase</code> = <code class='inline prettyprint'>git fetch origin; git rebase origin/master</code></p>
 
 <p>:)</p>
 </div>
@@ -942,11 +941,11 @@ master
 
 <p>Você pode remover um stash</p>
 
-<p><code class='inline prettyprint'>git stash drop [&lt;stage-index&gt;]</code></p>
+<p><code class='inline prettyprint'>git stash drop [&lt;stash-index&gt;]</code></p>
 
 <p>Você pode aplicar o último stash e removê-lo ao mesmo tempo.</p>
 
-<p><code class='inline prettyprint'>git stash pop</code></p>
+<p><code class='inline prettyprint'>git stash pop [&lt;stash-index&gt;]</code></p>
 
 <p>Criar um branch do stash</p>
 
